@@ -192,9 +192,9 @@ class PagerWithEmojis:
     STOP: str = "\N{CROSS MARK}"
     # 処理に必要な絵文字を変数として持っておく
 
-    def __init__(self, pages:list[discord.Embed]):
+    def __init__(self, pages:List[discord.Embed]):
         self.page_index: int = 0
-        self.pages: list[discord.Embed] = pages
+        self.pages: List[discord.Embed] = pages
 
     @property
     def now_page(self) -> discord.Embed:
@@ -272,7 +272,7 @@ class PagerWithEmojis:
 @bot.command()
 async def help(ctx: commands.Context):
     
-    pages: list[discord.Embed] = [
+    pages: List[discord.Embed] = [
         discord.Embed(
             title="ping",
             description='`>ping`\nBOTのpingが確認できます',
