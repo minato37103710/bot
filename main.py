@@ -8,7 +8,7 @@ import aiofiles
 import traceback
 from googlesearch import search
 from tinydb import TinyDB, Query
-
+from typing import List
 inten = discord.Intents.default()
 
 intent = discord.Intents.all()
