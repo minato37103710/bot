@@ -190,7 +190,7 @@ class PagerWithEmojis:
     STOP: str = "\N{CROSS MARK}"
     # 処理に必要な絵文字を変数として持っておく
 
-    def __init__(self, pages:list[discord.Embed]):
+    def __init__(self, pages:List[discord.Embed]):
         self.page_index: int = 0
         self.pages: List[discord.Embed] = pages
 
