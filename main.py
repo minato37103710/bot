@@ -113,8 +113,9 @@ async def timers(ctx,query):  #コマンドを判定
             await ctx.send(embed=discord.Embed(title='timer finished',description=f'{int(query)}'))  #内容を変換
 
 @bot.command()
-async def server(ctx):
-    await ctx.send(f"{len(bot.guilds)}")
+async def about(ctx):
+    about = await ctx.send(discord.Embed(title='loading...',description=''))
+    await about.edit(embed=discord.Embed(title='timer bot stutas',description=f"{len(bot.guilds)}")
 
 @bot.command()
 async def suggestion(ctx,*,arg):
