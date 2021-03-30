@@ -6,9 +6,8 @@ import sys
 import json
 import aiofiles
 import traceback
-from googlesearch import search
 from tinydb import TinyDB, Query
-
+from typing import List
 inten = discord.Intents.default()
 
 intent = discord.Intents.all()
@@ -193,7 +192,7 @@ class PagerWithEmojis:
 
     def __init__(self, pages:list[discord.Embed]):
         self.page_index: int = 0
-        self.pages: list[discord.Embed] = pages
+        self.pages: List[discord.Embed] = pages
 
     @property
     def now_page(self) -> discord.Embed:
@@ -204,11 +203,11 @@ class PagerWithEmojis:
         return len(self.pages) - 1
 
     @property
-    def page_emojis(self) -> list[str]:
+    def page_emojis(self) -> List[str]:
         """
         現在ページを出力する際に追加する必要のある絵文字のリストを返します。
         """
-        emojis: list[str] = [self.LEFT_ARROW,self.RIGHT_ARROW,self.STOP]
+        emojis: List[str] = [self.LEFT_ARROW,self.RIGHT_ARROW,self.STOP]
         if self.page_index == 0:
             # もし、今最初のページにいるなら左へ移動する絵文字を除外する
             emojis.remove(self.LEFT_ARROW)
