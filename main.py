@@ -6,8 +6,9 @@ import sys
 import json
 import aiofiles
 import traceback
+from googlesearch import search
 from tinydb import TinyDB, Query
-from typing import List
+
 inten = discord.Intents.default()
 
 intent = discord.Intents.all()
@@ -61,10 +62,6 @@ async def on_message(message):
             print(message.author.guild)
         if not message.guild:
             print('dm')
-
-    if message.content == '':
-        print('メッセージ受信')  
-        print(message.author.guild)
     await bot.process_commands(message)
 
 @bot.command()
@@ -117,13 +114,16 @@ async def timers(ctx,query):  #コマンドを判定
             await ctx.send(embed=discord.Embed(title='timer finished',description=f'{int(query)}'))  #内容を変換
 
 @bot.command()
-async def owner(ctx,*,arg):
-    print(arg)
-    print(ctx.author.guild)
-    input_message = input('メッセージを入力してください:')
+async def server(ctx):
+    await ctx.send(f"{len(bot.guilds)}")
+
+@bot.command()
+async def suggestion(ctx,*,arg):
+    ch = bot.get_channel(826124044113018880)
+    await ch.send(arg)
+    await ch.send(ctx.author.guild)
     chack = "\N{WHITE HEAVY CHECK MARK}"
     await ctx.message.add_reaction(chack)
-    await ctx.send(input_message)
 
 @bot.command()
 async def my_avatar(ctx):
@@ -191,9 +191,9 @@ class PagerWithEmojis:
     STOP: str = "\N{CROSS MARK}"
     # 処理に必要な絵文字を変数として持っておく
 
-    def __init__(self, pages:List[discord.Embed]):
+    def __init__(self, pages:list[discord.Embed]):
         self.page_index: int = 0
-        self.pages: List[discord.Embed] = pages
+        self.pages: list[discord.Embed] = pages
 
     @property
     def now_page(self) -> discord.Embed:
@@ -204,11 +204,11 @@ class PagerWithEmojis:
         return len(self.pages) - 1
 
     @property
-    def page_emojis(self) -> List[str]:
+    def page_emojis(self) -> list[str]:
         """
         現在ページを出力する際に追加する必要のある絵文字のリストを返します。
         """
-        emojis: List[str] = [self.LEFT_ARROW,self.RIGHT_ARROW,self.STOP]
+        emojis: list[str] = [self.LEFT_ARROW,self.RIGHT_ARROW,self.STOP]
         if self.page_index == 0:
             # もし、今最初のページにいるなら左へ移動する絵文字を除外する
             emojis.remove(self.LEFT_ARROW)
@@ -271,7 +271,7 @@ class PagerWithEmojis:
 @bot.command()
 async def help(ctx: commands.Context):
     
-    pages: List[discord.Embed] = [
+    pages: list[discord.Embed] = [
         discord.Embed(
             title="ping",
             description='`>ping`\nBOTのpingが確認できます',
@@ -298,8 +298,8 @@ async def help(ctx: commands.Context):
             color=discord.Color.random()
         ),
                 discord.Embed(
-            title="prin",
-            description="botを動かしているターミナルにメッセージを送ることができます",
+            title='suggestion',
+            description="botのオーナーにメッセージを送ることができます",
             color=discord.Color.random()
         )
     ]
