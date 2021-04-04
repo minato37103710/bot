@@ -39,9 +39,9 @@ bot = commands.Bot(command_prefix=prefix_from_json  # 定義した関数を渡�
 
 @bot.event
 async def on_ready():
-  print('------------')
-  print(bot.user)
-  print('------------')
+    print('------------')
+    print(bot.user)
+    print('------------')
 
 @bot.event
 async def on_member_join(member):
@@ -70,8 +70,8 @@ async def memo(ctx,h):
 
 @bot.command()
 async def out(ctx,p):
-  n = db.search(User.name==p)
-  await ctx.send(f"{n[0]['name'],n[0]['age']}")
+    n = db.search(User.name==p)
+    await ctx.send(f"{n[0]['name'],n[0]['age']}")
 
 @bot.event
 async def on_command_error(ctx, error):
@@ -95,22 +95,22 @@ async def on_command_error(ctx, error):
 
 @bot.command()
 async def timerm(ctx,query):  #コマンドを判定
-            await ctx.send("timer start")
-            await asyncio.sleep(int(query) * 60)  #分を取得&60倍
-            await ctx.send(embed=discord.Embed(title='timer finished',description=f'{int(query)}'))  #内容を変換
+    await ctx.send("timer start")
+    await asyncio.sleep(int(query) * 60)  #分を取得&60倍
+    await ctx.send(embed=discord.Embed(title='timer finished',description=f'{int(query)}'))  #内容を変換
 
 @bot.command()
 async def timerh(ctx,query):  #コマンドを判定
-            await ctx.send("timer start")
-            await asyncio.sleep(int(query) * 3600)  #分を取得&60倍
-            await ctx.send(embed=discord.Embed(title='timer finished',description=f'{int(query)}'))  #内容を変換
+    await ctx.send("timer start")
+    await asyncio.sleep(int(query) * 3600)  #分を取得&60倍
+    await ctx.send(embed=discord.Embed(title='timer finished',description=f'{int(query)}'))  #内容を変換
 
 @bot.command()
 async def timers(ctx,query):  #コマンドを判定
-            await ctx.send(f"{ctx.author.name} is timer start")
-            print(f'{ctx.guild}')
-            await asyncio.sleep(int(query))  #分を取得&60倍
-            await ctx.send(embed=discord.Embed(title='timer finished',description=f'{int(query)}'))  #内容を変換
+    await ctx.send(f"{ctx.author.name} is timer start")
+    print(f'{ctx.guild}')
+    await asyncio.sleep(int(query))  #分を取得&60倍
+    await ctx.send(embed=discord.Embed(title='timer finished',description=f'{int(query)}'))  #内容を変換
 
 @bot.command()
 async def about(ctx):
@@ -127,11 +127,11 @@ async def suggestion(ctx,*,arg):
 
 @bot.command()
 async def my_avatar(ctx):
-  avatar=discord.Embed(title='your_avatr',description=f"[this]({ctx.author.avatar_url})")
-  avatar.set_thumbnail(url=ctx.author.avatar_url)
-  ava = await ctx.send(embed=discord.Embed(title="searching for now",description=''))
-  await asyncio.sleep(5)
-  await ava.edit(embed=avatar)
+    avatar=discord.Embed(title='your_avatr',description=f"[this]({ctx.author.avatar_url})")
+    avatar.set_thumbnail(url=ctx.author.avatar_url)
+    ava = await ctx.send(embed=discord.Embed(title="searching for now",description=''))
+    await asyncio.sleep(5)
+    await ava.edit(embed=avatar)
 
 @bot.command()
 @commands.is_owner()
@@ -141,22 +141,22 @@ async def shutdown(ctx):
 
 @bot.command()
 async def my_status(ctx):
-  status=discord.Embed(title='your status',description=f'{ctx.author.status}',color=discord.Color.random())
-  await ctx.send(embed=status)
+    status=discord.Embed(title='your status',description=f'{ctx.author.status}',color=discord.Color.random())
+    await ctx.send(embed=status)
 
 @bot.command()
 async def my_guild(ctx):
-  guil=discord.Embed(title='your guild',description=f'{ctx.author.guild}')
-  await ctx.send(embed=guil)
+    guil=discord.Embed(title='your guild',description=f'{ctx.author.guild}')
+    await ctx.send(embed=guil)
 
 @bot.command()
 async def member(ctx):
-  mes = '\n'.join([m.name for m in ctx.guild.members])
-  lod = await ctx.send(embed=discord.Embed(title='loading',description=''))
-  await asyncio.sleep(5)
-  await lod.edit(embed=discord.Embed(title='メンバーの名前一覧',description=f'`{mes}`',color=discord.Color.random()))
-  print(ctx.author.guild)
-  print(mes)
+    mes = '\n'.join([m.name for m in ctx.guild.members])
+    lod = await ctx.send(embed=discord.Embed(title='loading',description=''))
+    await asyncio.sleep(5)
+    await lod.edit(embed=discord.Embed(title='メンバーの名前一覧',description=f'`{mes}`',color=discord.Color.random()))
+    print(ctx.author.guild)
+    print(mes)
 
 @bot.command()
 async def ping(ctx):
