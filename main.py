@@ -34,7 +34,7 @@ bot = commands.Bot(command_prefix=prefix_from_json  # 定義した関数を渡�
 ,
   help_command=None
 ,
-  activity=discord.Game(f'標準prefixは[,]です。||  prefixを忘れてしまった場合は[タイマーボット]と発言してください。DMにてリセット方法をご案内します。||現在のBOT導入鯖数[{len(bot.guilds)}]')
+  activity=discord.Game(f'標準prefixは[,]です。')
   )
 
 @bot.event
