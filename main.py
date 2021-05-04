@@ -60,8 +60,6 @@ async def on_message(message):
             print(message.author.name)
             print(message.guild.id)
             print(message.author.guild)
-        if not message.guild:
-            print('dm')
     await bot.process_commands(message)
 
 @bot.command()
