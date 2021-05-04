@@ -42,7 +42,7 @@ bot = commands.Bot(command_prefix=prefix_from_json  # 定義した関数を渡�
 async def on_ready():
     print('------------')
     print(bot.user)
-    print(bot.id)
+    print('online')
     print('------------')
 
 @bot.event
