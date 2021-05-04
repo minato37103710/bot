@@ -14,6 +14,7 @@ class timer(commands.Cog):
 
     @timer.command(name='second',aliases=['sec'])
     async def second(self,ctx,second):
+      await ctx.send(f'second秒タイマーをかけます')
       await asyncio.sleep(int(second))
       await ctx.send(f'{second}秒が経ちました')
 
