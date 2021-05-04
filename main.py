@@ -38,6 +38,8 @@ bot = commands.Bot(command_prefix=prefix_from_json  # 定義した関数を渡�
   activity=discord.Game(f'標準prefixは[,]です。')
   )
 
+bot.author_id = 757106917947605034
+
 @bot.event
 async def on_ready():
     print('------------')
