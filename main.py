@@ -319,5 +319,12 @@ async def set_prefix(ctx,prefix):
     await ctx.send(f"prefixが {before_prefix} から {prefix} に変更されました。")
     print('prefix変更通知')
 
+extensions = [
+    'cogs.timer'  # Same name as it would be if you were importing it
+]
+
+if __name__ == '__main__':  # Ensures this is the file being ran
+	for extension in extensions:
+		bot.load_extension(extension)
 
 bot.run('ODAyNjk4MzE4MzY3MDMxMjk2.YAzBEA.kRAnyRmg10SvkT4bswJZwxL8tfE')
