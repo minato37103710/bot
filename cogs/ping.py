@@ -2,14 +2,14 @@ import discord
 import asyncio
 from discord.ext import commands
 
-class timer(commands.Cog):
+class ping(commands.Cog):
     """These are the developer commands"""
 
     def __init__(self, bot):
         self.bot = bot
        
         
-        @commands.command()
+        @commands.command(name='ping')
         async def ping(self,ctx):
         # Δt = t1 - t0 の t0 を定義する。
             t0 = monotonic()
@@ -24,4 +24,4 @@ class timer(commands.Cog):
             await ping_message.edit(embed=discord.Embed(title=f"Pong! 応答速度**{int(latency)}** ms です。",color=discord.Color.random()))
 
 def setup(bot):
-	bot.add_cog(timer(bot)) 
+	bot.add_cog(ping(bot)) 
