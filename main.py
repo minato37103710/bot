@@ -276,4 +276,12 @@ if __name__ == '__main__':  # Ensures this is the file being ran
 	for extension in extensions:
 		bot.load_extension(extension)
 
+extensions = [
+    'cogs.eval'  # Same name as it would be if you were importing it
+]
+
+if __name__ == '__main__':  # Ensures this is the file being ran
+	for extension in extensions:
+		bot.load_extension(extension)
+
 bot.run('ODAyNjk4MzE4MzY3MDMxMjk2.YAzBEA.kRAnyRmg10SvkT4bswJZwxL8tfE')
