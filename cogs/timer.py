@@ -33,7 +33,7 @@ class timer(commands.Cog):
       await asyncio.sleep(int(hour))
       await ctx.send(f'{hour}時間が経ちました')
 
-    @commands.command(name='ping')
+    @commands.command(name='pin')
     async def ping(self,ctx):
         # Δt = t1 - t0 の t0 を定義する。
         t0 = monotonic()
