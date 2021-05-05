@@ -277,7 +277,7 @@ if __name__ == '__main__':  # Ensures this is the file being ran
 		bot.load_extension(extension)
 
 extensions = [
-    'cogs.eval'  # Same name as it would be if you were importing it
+    'cogs.dev'  # Same name as it would be if you were importing it
 ]
 
 if __name__ == '__main__':  # Ensures this is the file being ran
