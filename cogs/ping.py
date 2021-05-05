@@ -9,7 +9,7 @@ class ping(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(name='pin')
+    @commands.command(name='ping')
     async def ping(self,ctx):
         # Δt = t1 - t0 の t0 を定義する。
       t0 = monotonic()
