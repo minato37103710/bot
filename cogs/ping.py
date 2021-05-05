@@ -7,7 +7,7 @@ class ping(commands.Cog):
     """These are the developer commands"""
 
     def __init__(self, bot):
-          self.bot = bot
+        self.bot = bot
 
     @commands.command(name='pin')
     async def ping(self,ctx):
