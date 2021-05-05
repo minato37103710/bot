@@ -8,6 +8,8 @@ import aiofiles
 import traceback
 from tinydb import TinyDB, Query
 from typing import List
+from datetime import datetime
+import discord
 
 inten = discord.Intents.default()
 
@@ -52,6 +54,12 @@ async def on_message(message):
             print(message.author.guild)
     await bot.process_commands(message)
 
+embed = discord.Embed(
+    title="title",
+    description="description",
+    timestamp=datetime.now()
+)
+
 @bot.command()
 async def memo(ctx,h):
     db.insert({'name':name,'age': h})
@@ -66,19 +74,7 @@ async def out(ctx,p):
 async def on_command_error(ctx, error):
     orig_error = getattr(error, "original", error)
     error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
-    messa = await ctx.send(embed=discord.Embed(title='Geting an error.',description=''))
-    await asyncio.sleep(0.5)
-    await messa.edit(embed=discord.Embed(title='Geting an error..',description=''))
-    await asyncio.sleep(0.5)
-    await messa.edit(embed=discord.Embed(title='Geting an error...',description=''))
-    await asyncio.sleep(0.5)
-    await messa.edit(embed=discord.Embed(title='Geting an error.',description=''))
-    await asyncio.sleep(0.5)
-    await messa.edit(embed=discord.Embed(title='Geting an error..',description=''))
-    await asyncio.sleep(0.5)
-    await messa.edit(embed=discord.Embed(title='Geting an error...',description=''))
-    await asyncio.sleep(1)
-    await messa.edit(embed=discord.Embed(title='error',description=f'`{error_msg}`'))
+    await messa.edit(embed=discord.Embed(title='error',description=f'```{error_msg}```',timestamp=datetime.now()))
     print(error_msg)
     print(ctx.author.guild)
 
