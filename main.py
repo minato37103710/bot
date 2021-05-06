@@ -74,7 +74,7 @@ async def out(ctx,p):
 async def on_command_error(ctx, error):
     orig_error = getattr(error, "original", error)
     error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
-    await ctx.send(embed=discord.Embed(title='error',description=f'```{error_msg}```',timestamp=datetime.now()))
+    await ctx.send(embed=discord.Embed(title='error',description=f'```{error_msg}```',timestamp=datetime.utcnow()))
     print(error_msg)
     print(ctx.author.guild)
 
