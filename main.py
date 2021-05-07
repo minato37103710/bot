@@ -59,7 +59,7 @@ embed = discord.Embed(
     description="description",
     timestamp=datetime.now()
 )
-embed.set_footer(text=f"{message.guild.name} / {message.channel.name}", icon_url=message.guild.icon_url_as(format="png"))
+
 @bot.command()
 async def memo(ctx,h):
     db.insert({'name':name,'age': h})
