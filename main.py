@@ -86,7 +86,7 @@ async def about(ctx):
 @bot.command()
 async def suggestion(ctx,*,arg):
     ch = bot.get_channel(826124044113018880)
-    sug=(embed=discord.Embed(title='suggestion',description=arg)
+    sug=discord.Embed(title='suggestion',description=arg)
     sug.set_footer(text=f"{message.guild.name} / {message.channel.name}", icon_url=message.guild.icon_url_as(format="png"))
     await ch.send(embed=discord.Embed(sug)
     chack = "\N{WHITE HEAVY CHECK MARK}"
