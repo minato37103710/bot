@@ -59,7 +59,7 @@ embed = discord.Embed(
     description="description",
     timestamp=datetime.now()
 )
-
+embed.set_footer(text=f"{message.guild.name} / {message.channel.name}", icon_url=message.guild.icon_url_as(format="png"))
 @bot.command()
 async def memo(ctx,h):
     db.insert({'name':name,'age': h})
@@ -86,8 +86,9 @@ async def about(ctx):
 @bot.command()
 async def suggestion(ctx,*,arg):
     ch = bot.get_channel(826124044113018880)
-    await ch.send(arg)
-    await ch.send(ctx.author.guild)
+    sug=(embed=discord.Embed(title='suggestion',description=arg)
+    sug.set_footer(text=f"{message.guild.name} / {message.channel.name}", icon_url=message.guild.icon_url_as(format="png"))
+    await ch.send(embed=discord.Embed(sug)
     chack = "\N{WHITE HEAVY CHECK MARK}"
     await ctx.message.add_reaction(chack)
 
