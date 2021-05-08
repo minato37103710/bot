@@ -8,8 +8,6 @@ bot = commands.Bot(command_prefix=','  # 定義した関数を渡しています
   cose_insensitive=True
 ,
   intents=intent
-,
-  help_command=True
 )
 
 @bot.event
