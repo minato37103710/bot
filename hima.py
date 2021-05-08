@@ -3,12 +3,14 @@ from discord.ext import commands
 
 intent=discord.Intents.all()
 
-bot = commands.Bot(command_prefix=','  # 定義した関数を渡しています
+bot = commands.Bot(command_prefix='hima!'  # 定義した関数を渡しています
 ,
   cose_insensitive=True
 ,
   intents=intent
 )
+
+bot.author_id = 757106917947605034
 
 @bot.event
 async def on_ready():
