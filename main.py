@@ -281,4 +281,6 @@ if __name__ == '__main__':  # Ensures this is the file being ran
 	for extension in extensions:
 		bot.load_extension(extension)
 
+bot.load_extension("jishaku")
+		
 bot.run('ODAyNjk4MzE4MzY3MDMxMjk2.YAzBEA.kRAnyRmg10SvkT4bswJZwxL8tfE')
