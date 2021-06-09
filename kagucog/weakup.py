@@ -31,6 +31,8 @@ class weakup(commands.Cog):
       print('devロード完了')
       self.bot.load_extension('kagucog.adminonly')
       print('adminonlyロード完了')
+      self.bot.load_extension('kagucog.music')
+      print('musicロード完了')
       print('全cogロード完了')
       await asyncio.sleep(5)
       await self.bot.change_presence(activity=discord.Game('起動完了'))
