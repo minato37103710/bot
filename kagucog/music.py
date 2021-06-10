@@ -1,13 +1,10 @@
 import asyncio
-
+from discord.ext import commands
 import discord
 import youtube_dl
-
-from discord.ext import commands
-
+from collections import deque
 # Suppress noise about console usage from errors
 youtube_dl.utils.bug_reports_message = lambda: ''
-
 
 ytdl_format_options = {
     'format': 'bestaudio/best',
@@ -51,77 +48,102 @@ class YTDLSource(discord.PCMVolumeTransformer):
         filename = data['url'] if stream else ytdl.prepare_filename(data)
         return cls(discord.FFmpegPCMAudio(filename, **ffmpeg_options), data=data)
 
-
-class Music(commands.Cog):
+class music(commands.Cog):
     def __init__(self, bot):
-        self.bot = bot
+      self.bot = bot
+      self.d = deque()
+    @commands.group()
+    async def music(self, ctx):
+      if ctx.invoked_subcommand is None:
+          await ctx.send('メインコマンドの後にサブコマンドが必要です。')
+    
+    @music.command()
+    async def join(self, ctx):
+      if ctx.author.voice is None:
+          await ctx.channel.send("あなたはボイスチャンネルに接続していません。")
+          return
+        # ボイスチャンネルに接続する
+      await ctx.author.voice.channel.connect()
+      await ctx.send("接続しました。")
+    
+    @music.command()
+    async def leave(self, ctx):
+      if ctx.guild.voice_client is None:
+            await ctx.send("接続していません。")
+            return
+      if ctx.guild.voice_client.is_playing():
+            await ctx.send("再生中です。")
+            return
+      self.d.clear()
+      await ctx.guild.voice_client.disconnect()
+      await ctx.send("切断しました。")
+    
+    async def play_only(self, ctx):
+            urls = self.d[0]
+            player = await YTDLSource.from_url(urls, loop=self.bot.loop)
+            embed=discord.Embed(title="音楽キューシステム",description=f"キューリストに追加されました。" ,color=0xff0000)
+            embed.add_field(name="音楽名",value=f"{urls}",inline=False)
+            await ctx.send(embed=embed)
+            return ctx.guild.voice_client.play(player, after=lambda _:self.bot.loop.create_task(self.play_end(ctx)))
+    
+    async def play_end(self, ctx):
+            self.d.popleft()
+            if len(self.d) == 0:
+                return await ctx.send("キューの中身が空になりました。再生を終了します。")
+            else:
+                await ctx.send("次の曲を再生します。")
+                return self.play_only(ctx)
+    
+    @music.command()
+    async def play(self, ctx,*,message):
+      # youtubeから音楽をダウンロードする
+      if ctx.guild.voice_client is None:
+            await ctx.channel.send("接続していません。")
+            return
+      url = message
+      self.d.append(url)
+      await ctx.send("キューに追加しました。")
+      if len(self.d) == 1:
+        await self.play_only(ctx)
+    @music.command()
+    async def pause(self, ctx):
+      if ctx.guild.voice_client is None:
+          await ctx.send("接続していません。")
+          return
 
-    @commands.command()
-    async def join(self, ctx, *, channel: discord.VoiceChannel):
-        """Joins a voice channel"""
+      # 再生中ではない場合は実行しない
+      if not ctx.guild.voice_client.is_playing():
+        await ctx.send("再生していません。")
+        return
+      ctx.guild.voice_client.stop()
+      await ctx.send("再生中の曲を中断しました。")
 
-        if ctx.voice_client is not None:
-            return await ctx.voice_client.move_to(channel)
-
-        await channel.connect()
-
-    @commands.command()
-    async def play(self, ctx, *, query):
-        """Plays a file from the local filesystem"""
-
-        source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio(query))
-        ctx.voice_client.play(source, after=lambda e: print('Player error: %s' % e) if e else None)
-
-        await ctx.send('Now playing: {}'.format(query))
-
-    @commands.command()
-    async def yt(self, ctx, *, url):
-        """Plays from a url (almost anything youtube_dl supports)"""
-
-        async with ctx.typing():
-            player = await YTDLSource.from_url(url, loop=self.bot.loop)
-            ctx.voice_client.play(player, after=lambda e: print('Player error: %s' % e) if e else None)
-
-        await ctx.send('Now playing: {}'.format(player.title))
-
-    @commands.command()
-    async def stream(self, ctx, *, url):
-        """Streams from a url (same as yt, but doesn't predownload)"""
-
-        async with ctx.typing():
-            player = await YTDLSource.from_url(url, loop=self.bot.loop, stream=True)
-            ctx.voice_client.play(player, after=lambda e: print('Player error: %s' % e) if e else None)
-
-        await ctx.send('Now playing: {}'.format(player.title))
-
-    @commands.command()
+    @music.command()
+    async def resume(self, ctx):
+      if ctx.guild.voice_client is None:
+          await ctx.send("接続していません。")
+          return
+      if not ctx.guild.voice_client.stop():
+        ctx.send("再生中です。")
+      await self.play_only(ctx)
+      await ctx.send("再生します。")
+    @music.command()
+    async def list(self, ctx):
+      if len(self.d) == 0:
+        await ctx.send("キューには何も入っていません。")
+      else:
+        await ctx.send(f"```{self.d}```")
+    @music.command()
     async def volume(self, ctx, volume: int):
         """Changes the player's volume"""
 
         if ctx.voice_client is None:
-            return await ctx.send("Not connected to a voice channel.")
+            return await ctx.send("ボイスチャンネルに接続していません。")
 
         ctx.voice_client.source.volume = volume / 100
-        await ctx.send("Changed volume to {}%".format(volume))
+        await ctx.send("音量を{}%に変更しました。".format(volume))
+  
 
-    @commands.command()
-    async def stop(self, ctx):
-        """Stops and disconnects the bot from voice"""
-
-        await ctx.voice_client.disconnect()
-
-    @play.before_invoke
-    @yt.before_invoke
-    @stream.before_invoke
-    async def ensure_voice(self, ctx):
-        if ctx.voice_client is None:
-            if ctx.author.voice:
-                await ctx.author.voice.channel.connect()
-            else:
-                await ctx.send("You are not connected to a voice channel.")
-                raise commands.CommandError("Author not connected to a voice channel.")
-        elif ctx.voice_client.is_playing():
-            ctx.voice_client.stop()
 
 def setup(bot):
-	bot.add_cog(Music(bot))
+  return bot.add_cog(music(bot))
