@@ -105,6 +105,7 @@ class music(commands.Cog):
       await ctx.send("キューに追加しました。")
       if len(self.d) == 1:
         await self.play_only(ctx)
+    
     @music.command()
     async def pause(self, ctx):
       if ctx.guild.voice_client is None:
@@ -124,7 +125,7 @@ class music(commands.Cog):
           await ctx.send("接続していません。")
           return
       if not ctx.guild.voice_client.stop():
-        ctx.send("再生中です。")
+        await ctx.send("再生中です。")
       await self.play_only(ctx)
       await ctx.send("再生します。")
     @music.command()
