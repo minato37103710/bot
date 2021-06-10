@@ -34,6 +34,7 @@ class weakup(commands.Cog):
       self.bot.load_extension('kagucog.music')
       print('musicロード完了')
       print('全cogロード完了')
+      self.bot.load_extension('cog.ping')
       await asyncio.sleep(5)
       await self.bot.change_presence(activity=discord.Game('起動完了'))
       self.loop.start()
