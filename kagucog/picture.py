@@ -22,7 +22,7 @@ class kagugoroku(commands.Cog):
         if not message.author.id == 757106917947605034:
             return
 
-        if message.content == 'test':
+        if message.content == '':
             emoji='<:vun:749229525572780062>'
             await message.add_reaction(emoji)
 
