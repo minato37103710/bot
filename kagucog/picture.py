@@ -17,7 +17,7 @@ class kagugoroku(commands.Cog):
         # Embedを使ったメッセージ送信 と ランダムで要素を選択
             a=random.choice(('0.png', '1.png', '2.png', '3.png'))
             await message.channel.send('語録あげる')
-            await message.channel.send(a)
+            await message.channel.send(file=discord.File(a))
 
 def setup(bot):
     bot.add_cog(kagugoroku(bot))
