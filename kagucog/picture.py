@@ -12,9 +12,6 @@ class kagugoroku(commands.Cog):
     async def on_message(self,message):
         if message.author.bot:
             return
-        
-        if not message.channel == self.bot.get_channel(744221288817623050):
-            return
 
         if message.content == 'おはよう':
         # Embedを使ったメッセージ送信 と ランダムで要素を選択
