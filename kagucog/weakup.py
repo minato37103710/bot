@@ -34,6 +34,7 @@ class weakup(commands.Cog):
       self.bot.load_extension('kagucog.music')
       print('musicロード完了')
       self.bot.load_extension('cogs.eval')
+      self.bot.load_extension('kagucog.picture')
       print('全cogロード完了')
       self.bot.load_extension('cogs.ping')
       await asyncio.sleep(5)
