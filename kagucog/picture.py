@@ -19,7 +19,7 @@ class kagugoroku(commands.Cog):
             await message.channel.send('語録あげる')
             await message.channel.send(file=discord.File(a))
 
-        if not message.author.id == 757106917947605034:
+        if not message.author.id == 838604998165397536:
             return
 
         if '' in message.content:
