@@ -11,7 +11,12 @@ class kagugoroku(commands.Cog):
     @commands.Cog.listener()
     async def on_message(message):
         if message.content == 'おはよう':
-            await message.channel.send(random_faile)
+        # Embedを使ったメッセージ送信 と ランダムで要素を選択
+        embed = discord.Embed(title="おみくじ", description=f"{message.author.mention}さんの今日の運勢は！",
+                              color=0x2ECC69)
+        embed.set_thumbnail(url=message.author.avatar_url)
+        embed.add_field(name="家具語録だ、よーく見てろ。", value=random.choice(('0.png', '1.png', '2.png', '3.png')), inline=False)
+        await message.channel.send(embed=embed)
 
 def setup(bot):
     bot.add_cog(kagugoroku(bot))
