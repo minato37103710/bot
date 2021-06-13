@@ -15,7 +15,7 @@ class kagugoroku(commands.Cog):
 
         if message.content == 'おはよう':
         # Embedを使ったメッセージ送信 と ランダムで要素を選択
-            a=random.choice(('0.png', '1.png', '2.png', '3.png'))
+            a=random.choice(('picture.0', 'picture.1g', 'picture.2', 'picture3'))
             await message.channel.send('語録あげる')
             await message.channel.send(file=discord.File(a))
 
