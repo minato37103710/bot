@@ -33,6 +33,7 @@ class weakup(commands.Cog):
       print('adminonlyロード完了')
       self.bot.load_extension('kagucog.music')
       print('musicロード完了')
+      self.bot.load_extension('cogs.eval')
       print('全cogロード完了')
       self.bot.load_extension('cogs.ping')
       await asyncio.sleep(5)
