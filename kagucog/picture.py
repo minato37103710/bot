@@ -19,10 +19,10 @@ class kagugoroku(commands.Cog):
             await message.channel.send('語録あげる')
             await message.channel.send(file=discord.File(a))
 
-        if not message.author.id == 838604998165397536:
+        if not message.author.id == 757106917947605034:
             return
 
-        if message.content == '':
+        if message.content == 'test':
             emoji='<:vun:749229525572780062>'
             await message.add_reaction(emoji)
 
