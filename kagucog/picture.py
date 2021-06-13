@@ -15,11 +15,9 @@ class kagugoroku(commands.Cog):
 
         if message.content == 'おはよう':
         # Embedを使ったメッセージ送信 と ランダムで要素を選択
-            embed = discord.Embed(title="語録", description="語録送信",
-                              color=0x2ECC69)
-            embed.set_thumbnail(url=message.author.avatar_url)
-            embed.add_field(name="家具語録だ、よーく見てろ。", value=random.choice(('0.png', '1.png', '2.png', '3.png')), inline=False)
-            await message.channel.send(embed=embed)
+            a=random.choice(('0.png', '1.png', '2.png', '3.png'))
+            await message.channel.send('語録あげる')
+            await message.channel.send(a)
 
 def setup(bot):
     bot.add_cog(kagugoroku(bot))
