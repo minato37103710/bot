@@ -19,7 +19,7 @@ class kagugoroku(commands.Cog):
             await message.channel.send('語録あげる')
             await message.channel.send(file=discord.File(a))
 
-        if 'vun' or 'Vun' in message.content:
+        if 'vun' in message.content:
             emoji='<:vun:749229525572780062>'
             await message.add_reaction(emoji)
 
