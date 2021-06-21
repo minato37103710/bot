@@ -27,9 +27,5 @@ class kagugoroku(commands.Cog):
             await message.add_reaction(emoji)
 
 
-    @commands.command(name='add')
-    async def add(self,ctx,name,picture):
-        db.insert({'name':name,'age': picture})
-
 def setup(bot):
     bot.add_cog(kagugoroku(bot))
