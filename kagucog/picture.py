@@ -1,12 +1,15 @@
 import discord
 from discord.ext import commands
 import random
+from tinydb import TinyDB, Query
+
+db=TinyDB('picture.json')
+
+User = Query()
 
 class kagugoroku(commands.Cog):
     def __init__(self, bot):
         self.bot = bot 
-
-    random_faile= random.choice('0.png')
 
     @commands.Cog.listener()
     async def on_message(self,message):
@@ -23,6 +26,10 @@ class kagugoroku(commands.Cog):
             emoji='<:vun:749229525572780062>'
             await message.add_reaction(emoji)
 
+
+    @commands.command(name='add')
+    async def add(self,ctx,name,picture):
+        db.insert({'name':name,'age': picture})
 
 def setup(bot):
     bot.add_cog(kagugoroku(bot))
