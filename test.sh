@@ -1,4 +1,4 @@
-ull コマンド
-#!/bin/bash
-
-git pull
+cd (~/Project/bot)
+git fetch
+git reset --hard origin/master
+git merge origin/master
