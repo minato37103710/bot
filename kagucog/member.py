@@ -15,7 +15,8 @@ class member(commands.Cog):
       gekka=ctx.guild.get_role(656629831550631948)
       fianos=ctx.guild.get_role(695178946668527696)
       rathiberuku=ctx.guild.get_role(749525902261616670)
-      await ctx.send(f'カグエト:{len(kagueto.members)}\nはとまる:{len(hatomaru.members)}\nルネライト:{len(runeraito.members)}\n月華:{len(gekka.members)}\nフィアノス:{len(fianos.members)}\nラティベルク:{len(rathiberuku.members)}')
+      kurarus=ctx.guild.get_role(856904704163840000)
+      await ctx.send(f'カグエト:{len(kagueto.members)}\nクラルス:{len(kurarus.members)}\nはとまる:{len(hatomaru.members)}\nルネライト:{len(runeraito.members)}\n月華:{len(gekka.members)}\nフィアノス:{len(fianos.members)}\nラティベルク:{len(rathiberuku.members)}')
 
     @commands.group(name='member')
     async def member(self,ctx):
@@ -28,6 +29,11 @@ class member(commands.Cog):
     async def kagueto(self,ctx):
       kagueto=ctx.guild.get_role(625524533947924522)
       await ctx.send(f'カグエト:{len(kagueto.members)}')
+
+    @member.command(name='2')
+    async def kurarus(self,ctx):
+      kagueto=ctx.guild.get_role(856904704163840000)
+      await ctx.send(f'クラルス:{len(kagueto.members)}')
 
     @member.command(name='3')
     async def hatomaru(self,ctx):
