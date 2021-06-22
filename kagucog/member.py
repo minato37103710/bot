@@ -21,7 +21,7 @@ class member(commands.Cog):
     @commands.group(name='member')
     async def member(self,ctx):
       if ctx.invoked_subcommand is None:
-        embed=discord.Embed(title='国家識別番号リスト',description='カグエト:1\nはとまる:3\nルネライト:4\n月華:5\nフィアノス:6\nラティベルク:7')
+        embed=discord.Embed(title='国家識別番号リスト',description='カグエト:1\nクラルス:2\nはとまる:3\nルネライト:4\n月華:5\nフィアノス:6\nラティベルク:7')
         embed.set_footer(text='member 国家識別番号　で人数を取得できます')
         await ctx.send(embed=embed)
     
