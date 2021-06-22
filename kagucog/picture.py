@@ -28,7 +28,7 @@ class kagugoroku(commands.Cog):
 
     @commands.command(name='add')
     async def _add(seld,ctx,*,arg):
-        attachment = str(attachment)
+        attachment = str(ctx.attachments[0])
         db.insert({'name':'arg','picture':attachment})
 
 def setup(bot):
