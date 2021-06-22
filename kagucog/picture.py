@@ -26,6 +26,10 @@ class kagugoroku(commands.Cog):
             emoji='<:vun:749229525572780062>'
             await message.add_reaction(emoji)
 
+    @commands.command(name='add')
+    async def _add(seld,ctx,*,arg):
+        attachment = str(attachment)
+        db.insert({'name':'arg','picture':attachment})
 
 def setup(bot):
     bot.add_cog(kagugoroku(bot))
