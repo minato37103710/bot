@@ -1,3 +1,5 @@
 #!/bin/bash
-cd /home/git/test/
-git --git-dir=.git pull origin master
+cd (~/Project/bot)
+git pull
+
+cron */5 * * * * ~/git_pull.sh
