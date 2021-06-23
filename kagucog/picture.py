@@ -30,6 +30,7 @@ class kagugoroku(commands.Cog):
     async def _add(seld,ctx,*,arg):
         attachment = str(ctx.message.attachments[0])
         db.insert({'name':'arg','picture':attachment})
+        await ctx.send('A')
 
 def setup(bot):
     bot.add_cog(kagugoroku(bot))
