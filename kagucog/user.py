@@ -6,7 +6,7 @@ class user(commands.Cog):
         self.bot = bot 
 
     @commands.command(name='user_info',aliases=['ui'])
-    async def userab(ctx, member : discord.Member):
+    async def userab(self,ctx, member : discord.Member):
         usab = discord.Embed(title=f'{member}の詳細', description='詳細だよ', color=discord.Color.orange())
         usab.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
         usab.set_thumbnail(url=member.avatar_url)
