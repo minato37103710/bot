@@ -26,8 +26,7 @@ class kagugoroku(commands.Cog):
             
             
 
-        if len(message.content) < 20 :
-            print('ok')
+        if len(message.content) > 20 :
             emoji='<:vun:749229525572780062>'
             await message.add_reaction(emoji)
 
