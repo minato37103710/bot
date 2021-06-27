@@ -18,18 +18,6 @@ class weakup(commands.Cog):
       await asyncio.sleep(5)
       await self.bot.change_presence(activity=discord.Game('!helpでhelp表示'))
 
-    @tasks.loop(minutes=1)
-    async def pr(self):
-      ch=self.bot.get_channel(858671199915474974)
-      t0 = monotonic()
-        # Discord を通す関数を挟む。(応答速度)
-
-            # Δt = t1 - t0, latency は ping 的な意味、応答速度。1000倍は、ms(ミリセカンド)にするため。
-      latency = (monotonic() - t0) * 1000
-
-        # 送っていたメッセージを編集。ここで、応答速度を表示する。int にしているのは、小数点を消すため。( int は整数値)
-      await ch.send(embed=discord.Embed(title=f"Pong! 応答速度**{int(latency)}** ms です。",color=discord.Color.random()))
-
     @commands.Cog.listener()
     async def on_ready(self):
       await self.bot.change_presence(activity=discord.Game('起動中'))      
@@ -50,7 +38,6 @@ class weakup(commands.Cog):
       await asyncio.sleep(5)
       await self.bot.change_presence(activity=discord.Game('起動完了'))
       self.loop.start()
-      self.pr.start()
 
 def setup(bot):
 	bot.add_cog(weakup(bot))
