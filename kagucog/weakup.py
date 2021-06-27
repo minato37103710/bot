@@ -18,7 +18,7 @@ class weakup(commands.Cog):
       await asyncio.sleep(5)
       await self.bot.change_presence(activity=discord.Game('!helpでhelp表示'))
 
-    @tasks.loop(seconds=1)
+    @tasks.loop(minutes=10)
     async def loop(self):
 
       ch=self.bot.get_channel(858675399320272916)
