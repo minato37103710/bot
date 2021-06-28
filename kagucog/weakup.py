@@ -19,7 +19,7 @@ class weakup(commands.Cog):
       await self.bot.change_presence(activity=discord.Game('!helpでhelp表示'))
 
     @tasks.loop(minutes=10)
-    async def loop(self):
+    async def ping(self):
 
       ch=self.bot.get_channel(858675399320272916)
       t0 = monotonic()
