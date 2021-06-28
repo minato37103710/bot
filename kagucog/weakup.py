@@ -53,6 +53,7 @@ class weakup(commands.Cog):
       await asyncio.sleep(5)
       await self.bot.change_presence(activity=discord.Game('起動完了'))
       self.loop.start()
+      self.ping.start()
 
 def setup(bot):
 	bot.add_cog(weakup(bot))
