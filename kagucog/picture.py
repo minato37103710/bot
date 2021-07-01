@@ -16,7 +16,7 @@ class kagugoroku(commands.Cog):
         if message.author.bot:
             return
 
-        if 'ひま' in message.content:
+        if message.content == 'ひま':
             if message.author.id == 627397331691765771:
                 await message.channel.send('は？何使おうとしとんの？死ねよ')
         # Embedを使ったメッセージ送信 と ランダムで要素を選択
