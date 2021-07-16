@@ -10,7 +10,7 @@ db=TinyDB('db.json')
 
 User=Query()
 
-class dev_command(commands.Cog,):
+class dev_command(commands.Cog):
     """These are the developer commands"""
 
     def __init__(self, bot):
