@@ -18,6 +18,8 @@ bot.author_id=757106917947605034
 async def on_ready():
   print('on')
 
+bot.load_extension('jishaku')
+
 bot.load_extension("kagucog.weakup")
 
 bot.run('ODQyOTk0NDUzMjQ5NTIzNzMz.YJ9Zww.oZVIOqgyp52Dqz_1r_JDZYbB3oQ')
