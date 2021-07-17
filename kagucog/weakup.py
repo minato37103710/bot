@@ -44,10 +44,9 @@ class weakup(commands.Cog):
       self.bot.load_extension('kagucog.music')
       print('musicロード完了')
       self.bot.load_extension('cogs.eval')
-      self.bot.load_extension('kagucog.picture')
       self.bot.load_extension('kagucog.user')
       self.bot.load_extension('kagucog.error_get')
-      self.bot.load_extension('kagucog.button')
+      
       print('全cogロード完了')
       self.bot.load_extension('cogs.ping')
       self.bot.load_extension('jishaku')
