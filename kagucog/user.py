@@ -20,7 +20,14 @@ class user(commands.Cog):
     @commands.command(name='userinfo')
     async def usin(self,ctx,user_id):
         user=await self.bot.fetch_user(user_id)
-        await ctx.send(user)
+        usab = discord.Embed(title=f'{user}の詳細', description='詳細だよ', color=discord.Color.orange())
+        usab.set_author(name=ctx.author.name, icon_url=ctx.author.avatar.url)
+        usab.set_thumbnail(url=user.avatar.url)
+        usab.add_field(name='名前', value=f'**{user}**')
+        usab.add_field(name='あなたはBot?', value=user.bot)
+        usab.add_field(name='ID', value=user.id)
+        usab.add_field(name='作成時間', value=user.created_at)
+        await ctx.send(embed=usab)
 
 def setup(bot):
     bot.add_cog(user(bot))
