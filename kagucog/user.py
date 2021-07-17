@@ -8,7 +8,7 @@ class user(commands.Cog):
     @commands.command(name='users_info',aliases=['usin'])
     async def userinfo(self,ctx, member : discord.Member):
         usab = discord.Embed(title=f'{member}の詳細', description='詳細だよ', color=discord.Color.orange())
-        usab.set_author(name=ctx.author, icon_url=ctx.author.avatar.url)
+        usab.set_author(name=ctx.author.name, icon_url=ctx.author.avatar.url)
         usab.set_thumbnail(url=member.avatar.url)
         usab.add_field(name='名前', value=f'**{member.display_name}#{member.discriminator}**')
         usab.add_field(name='あなたはBot?', value=member.bot)
