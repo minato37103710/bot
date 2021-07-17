@@ -17,5 +17,10 @@ class user(commands.Cog):
         usab.add_field(name='サーバーに参加した時間', value=member.joined_at)
         await ctx.send(embed=usab)
 
+    @commands.command(name='userinfo')
+    async def usin(self,ctx,user_id):
+        user=await self.bot.fetch_user(user_id)
+        await ctx.send(user)
+
 def setup(bot):
     bot.add_cog(user(bot))
