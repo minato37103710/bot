@@ -40,7 +40,7 @@ async def on_ready():
 @bot.event
 async def on_member_join(member):
     print('ok')
-    await channel.send(f'{member.mention}が入室しました')
+    await member.send(f'{member.mention}が入室しました')
 
 @bot.event
 async def on_message(message):
@@ -61,7 +61,7 @@ embed = discord.Embed(
 )
 
 @bot.command()
-async def memo(ctx,h):
+async def memo(ctx,name,h):
     db.insert({'name':name,'age': h})
     await ctx.send(f'{h}を{name}として保存しました')
 
@@ -280,5 +280,5 @@ extensions = [
 if __name__ == '__main__':  # Ensures this is the file being ran
 	for extension in extensions:
 		bot.load_extension(extension)
-		
+
 bot.run('ODAyNjk4MzE4MzY3MDMxMjk2.YAzBEA.kRAnyRmg10SvkT4bswJZwxL8tfE')
