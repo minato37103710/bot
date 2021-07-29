@@ -16,7 +16,7 @@ class member(commands.Cog):
       neo_jion=ctx.guild.get_role(866902770924912641)
       rokku_fia=ctx.guild.get_role(868364508089970698)
       kurarus=ctx.guild.get_role(856904704163840000)
-      await ctx.send(f'ツルハシ:{len(turuhashi.members)}\nハトマル:{len(hatomaru.members)}\nリネア:{len(rinea.members)}\nルネライト:{len(radoraddo.members)}\nネオ・ジオン:{len(neo_jion.members)}\nロック・フィア:{len(rokku_fia.members)}')
+      await ctx.send(f'ツルハシ:{len(turuhashi.members)}\nハトマル:{len(hatomaru.members)}\nリネア:{len(rinea.members)}\nラードラッド:{len(radoraddo.members)}\nネオ・ジオン:{len(neo_jion.members)}\nロック・フィア:{len(rokku_fia.members)}')
 
     @commands.group(name='member')
     async def member(self,ctx):
