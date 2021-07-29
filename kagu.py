@@ -22,4 +22,4 @@ bot.load_extension('jishaku')
 
 bot.load_extension("kagucog.weakup")
 
-bot.run('ODQyOTk0NDUzMjQ5NTIzNzMz.YJ9Zww.oZVIOqgyp52Dqz_1r_JDZYbB3oQ')
+bot.run('ODcwMTI0NTQxMjcwMTcxNzgw.YQIMoA._6BZr1uWoWWAvF6j7JKWBxKu3TU')
