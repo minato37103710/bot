@@ -10,49 +10,26 @@ class weakup(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
   
-    @tasks.loop(seconds=1)
-    async def loop(self):
-      guild=self.bot.get_guild(623002521207832586)
-      await asyncio.sleep(5)
-      await self.bot.change_presence(activity=discord.Game(f'{len(guild.members)}人'))
-      await asyncio.sleep(5)
-      await self.bot.change_presence(activity=discord.Game('!helpでhelp表示'))
-
-    @tasks.loop(minutes=10)
-    async def ping(self):
-
-      ch=self.bot.get_channel(858675399320272916)
-      t0 = monotonic()
-        # Discord を通す関数を挟む。(応答速度)
-      ping_message = await ch.send(embed=discord.Embed(title="計算中...",description=' '))
-
-            # Δt = t1 - t0, latency は ping 的な意味、応答速度。1000倍は、ms(ミリセカンド)にするため。
-      latency = (monotonic() - t0) * 1000
-
-        # 送っていたメッセージを編集。ここで、応答速度を表示する。int にしているのは、小数点を消すため。( int は整数値)
-      await ping_message.edit(embed=discord.Embed(title=f"Pong! 応答速度**{int(latency)}** ms です。",color=discord.Color.random()))
-
     @commands.Cog.listener()
     async def on_ready(self):
       await self.bot.change_presence(activity=discord.Game('起動中'))      
-      self.bot.load_extension("kagucog.member")
+      self.bot.load_extension("turuhashicogs.member")
       print('memberロード完了')
-      self.bot.load_extension("kagucog.dev")
+      self.bot.load_extension("turuhashicogs.dev")
       print('devロード完了')
-      self.bot.load_extension('kagucog.adminonly')
+      self.bot.load_extension('turuhashicogs.adminonly')
       print('adminonlyロード完了')
-      self.bot.load_extension('kagucog.music')
+      self.bot.load_extension('turuhashicogs.music')
       print('musicロード完了')
       self.bot.load_extension('cogs.eval')
-      self.bot.load_extension('kagucog.user')
-      self.bot.load_extension('kagucog.error_get')
-      self.bot.load_extension('kagucog.button')
+      self.bot.load_extension('turuhashicogs.user')
+      self.bot.load_extension('turuhashicogs.error_get')
+      self.bot.load_extension('turuhashicogs.button')
+      self.bot.load_extension('turuhashicogs.listener')
       print('全cogロード完了')
       self.bot.load_extension('cogs.ping')
       await asyncio.sleep(5)
       await self.bot.change_presence(activity=discord.Game('起動完了'))
-      self.loop.start()
-      self.ping.start()
 
 def setup(bot):
 	bot.add_cog(weakup(bot))
