@@ -25,25 +25,25 @@ class listener(commands.Cog):
                 def checki(m):
                     return m.author == msg.author and m.channel == msg.channel
                 #big brain part comes here, the bot waits for the message for 2 seconds and if thats satisfied it waits again for a message for 2 seconds and if the playing reaches the end it means they spammed
-                respa = await self.bot.wait_for('message', timeout=1, check=checki)
+                respa = await self.bot.wait_for('message', timeout=0.6, check=checki)
                 if respa:
-                    respd = await self.bot.wait_for('message', timeout=1, check=checki)
+                    respd = await self.bot.wait_for('message', timeout=0.6, check=checki)
                     if respd:
-                        respe = await self.bot.wait_for('message', timeout=1, check=checki)
+                        respe = await self.bot.wait_for('message', timeout=0.6, check=checki)
                         if respe:
-                            respw= await self.bot.wait_for('message', timeout=1, check=checki)
+                            respw= await self.bot.wait_for('message', timeout=0.6, check=checki)
                             if respw:
-                                respq = await self.bot.wait_for('message', timeout=1, check=checki)
+                                respq = await self.bot.wait_for('message', timeout=0.6, check=checki)
                                 #getting the message author
                                 def is_me(m):
                                     return m.author == msg.author
                                 role=msg.guild.get_role(867046102455943199)#(870202263908532255)
                                 #removing the messages sent by them with the check=is_me using the discord.TextChannel.purge method.
-                                
+                                await msg.author.add_roles(role) 
                                 await msg.channel.purge(limit=4, check=is_me)
                                 await msg.channel.send(f"Stop spamming {msg.author.mention}")
                                 await msg.author.send('Please stop spam')
-                                await msg.author.add_roles(role)   
+                                  
                                 #removing them from the list
                                 spamming_list.remove(str(msg.author.id))
             except asyncio.TimeoutError:
