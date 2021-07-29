@@ -22,4 +22,4 @@ bot.load_extension('jishaku')
 
 bot.load_extension("turuhashicogs.weakup")
 
-bot.run('ODcwMTI0NTQxMjcwMTcxNzgw.YQIMoA._6BZr1uWoWWAvF6j7JKWBxKu3TU')
+bot.run('ODQ2OTg5MzEzMjkxNDUyNDM3.YK3iRA.2LmFNOmnZfzMbw-jYUpZm0p6j00')

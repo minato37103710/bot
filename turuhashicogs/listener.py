@@ -3,18 +3,18 @@ from discord.ext import commands
 import glob, random
 from tinydb import TinyDB, Query
 import asyncio
-import traceback
+
 
 db=TinyDB('picture.json')
 
 User = Query()
 
-class kagugoroku(commands.Cog):
+class listener(commands.Cog):
     def __init__(self, bot):
         self.bot = bot 
 
     @commands.Cog.listener()
-    async def on_message(self,msg,error):
+    async def on_message(self,msg):
         spamming_list = []
     #you can use a json, if you have a public bot but for now let's just use this
         #checking if the author is in the list, to prevent bot spamming.
@@ -37,16 +37,23 @@ class kagugoroku(commands.Cog):
                                 #getting the message author
                                 def is_me(m):
                                     return m.author == msg.author
+                                role=msg.guild.get_role(870202263908532255)
                                 #removing the messages sent by them with the check=is_me using the discord.TextChannel.purge method.
-                                await msg.author.add_role(msg.guild.get_roles(870202263908532255))  
+                                
                                 await msg.channel.purge(limit=4, check=is_me)
                                 await msg.channel.send(f"Stop spamming {msg.author.mention}")
-                                  
+                                await msg.author.send('Please stop spam')
+                                await msg.author.add_roles(role)   
                                 #removing them from the list
                                 spamming_list.remove(str(msg.author.id))
             except asyncio.TimeoutError:
                 #it means they are not spamming also removing it
                 spamming_list.remove(str(msg.author.id))
                 return
+
+        if 'https://' in msg.content:
+            await msg.channel.purge()
+
+
 def setup(bot):
-    bot.add_cog(kagugoroku(bot))
+    bot.add_cog(listener(bot))

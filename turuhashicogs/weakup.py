@@ -28,7 +28,6 @@ class weakup(commands.Cog):
       self.bot.load_extension('turuhashicogs.listener')
       print('全cogロード完了')
       self.bot.load_extension('cogs.ping')
-      await asyncio.sleep(5)
       await self.bot.change_presence(activity=discord.Game('起動完了'))
 
 def setup(bot):
