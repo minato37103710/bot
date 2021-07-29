@@ -20,6 +20,6 @@ async def on_ready():
 
 bot.load_extension('jishaku')
 
-bot.load_extension("kagucog.weakup")
+bot.load_extension("turuhashicogs.weakup")
 
 bot.run('ODcwMTI0NTQxMjcwMTcxNzgw.YQIMoA._6BZr1uWoWWAvF6j7JKWBxKu3TU')
