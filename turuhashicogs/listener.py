@@ -3,6 +3,7 @@ from discord.ext import commands
 import glob, random
 from tinydb import TinyDB, Query
 import asyncio
+import traceback
 
 db=TinyDB('picture.json')
 
@@ -13,7 +14,7 @@ class kagugoroku(commands.Cog):
         self.bot = bot 
 
     @commands.Cog.listener()
-    async def on_message(self,msg):
+    async def on_message(self,msg,error):
         spamming_list = []
     #you can use a json, if you have a public bot but for now let's just use this
         #checking if the author is in the list, to prevent bot spamming.
@@ -47,6 +48,5 @@ class kagugoroku(commands.Cog):
                 #it means they are not spamming also removing it
                 spamming_list.remove(str(msg.author.id))
                 return
-
 def setup(bot):
     bot.add_cog(kagugoroku(bot))
