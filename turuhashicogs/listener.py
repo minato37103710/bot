@@ -37,9 +37,10 @@ class kagugoroku(commands.Cog):
                                 def is_me(m):
                                     return m.author == msg.author
                                 #removing the messages sent by them with the check=is_me using the discord.TextChannel.purge method.
+                                await msg.author.add_role(msg.guild.get_roles(870202263908532255))  
                                 await msg.channel.purge(limit=4, check=is_me)
                                 await msg.channel.send(f"Stop spamming {msg.author.mention}")
-                                await msg.author.add_role(msg.guild.get_roles(870202263908532255))    
+                                  
                                 #removing them from the list
                                 spamming_list.remove(str(msg.author.id))
             except asyncio.TimeoutError:
