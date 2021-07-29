@@ -51,7 +51,7 @@ class listener(commands.Cog):
                 spamming_list.remove(str(msg.author.id))
                 return
 
-        if 'https://' in msg.content:
+        elif 'https://' in msg.content:
             await msg.channel.purge()
 
 
