@@ -13,11 +13,13 @@ class listener(commands.Cog):
     async def on_message(self,msg):
         
         if 'https://' in msg.content:
-            if not '.png' in msg.content:
-                await msg.channel.purge(limit=1)
-                await msg.channel.send(f'URLを検知したため削除いたしました\n送信者:{msg.author.mention}')
+            if '.png' in msg.content:
+                pass
 
-            elif not '.jpeg' in msg.content:
+            elif '.jpeg' in msg.content:
+                pass
+            
+            else:
                 await msg.channel.purge(limit=1)
                 await msg.channel.send(f'URLを検知したため削除いたしました\n送信者:{msg.author.mention}')
 
