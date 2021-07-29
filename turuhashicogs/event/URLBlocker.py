@@ -4,6 +4,7 @@ import glob, random
 from tinydb import TinyDB, Query
 import asyncio
 
+
 class listener(commands.Cog):
     def __init__(self, bot):
         self.bot = bot 
