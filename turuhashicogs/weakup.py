@@ -27,6 +27,7 @@ class weakup(commands.Cog):
       self.bot.load_extension('turuhashicogs.button')
       self.bot.load_extension('turuhashicogs.event.antispam')
       self.bot.load_extension('turuhashicogs.event.URLBlocker')
+      self.bot.load_extension('turuhashicogs.event.join')
       print('全cogロード完了')
       self.bot.load_extension('cogs.ping')
       await self.bot.change_presence(activity=discord.Game('起動完了'))
