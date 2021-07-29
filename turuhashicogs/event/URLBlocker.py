@@ -16,7 +16,7 @@ class listener(commands.Cog):
             if '.png' in msg.content:
                 pass
 
-            elif '.jpeg' in msg.content:
+            elif '.jpg' in msg.content:
                 pass
             
             else:
