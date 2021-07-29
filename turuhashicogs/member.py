@@ -9,14 +9,14 @@ class member(commands.Cog):
 
     @commands.command(name='ninzu')
     async def ninzu(self,ctx):
-      kagueto=ctx.guild.get_role(625524533947924522)
-      hatomaru=ctx.guild.get_role(635841540044095492)
-      runeraito=ctx.guild.get_role(633182520531222544)
-      gekka=ctx.guild.get_role(656629831550631948)
-      fianos=ctx.guild.get_role(695178946668527696)
-      rathiberuku=ctx.guild.get_role(749525902261616670)
+      turuhashi=ctx.guild.get_role(867251186410848296)
+      hatomaru=ctx.guild.get_role(866902506054221824)
+      rinea=ctx.guild.get_role(866902261124825099)
+      radoraddo=ctx.guild.get_role(866902500287315978)
+      neo_jion=ctx.guild.get_role(866902770924912641)
+      rokku_fia=ctx.guild.get_role(868364508089970698)
       kurarus=ctx.guild.get_role(856904704163840000)
-      await ctx.send(f'カグエト:{len(kagueto.members)}\nクラルス:{len(kurarus.members)}\nはとまる:{len(hatomaru.members)}\nルネライト:{len(runeraito.members)}\n月華:{len(gekka.members)}\nフィアノス:{len(fianos.members)}\nラティベルク:{len(rathiberuku.members)}')
+      await ctx.send(f'ツルハシ:{len(turuhashi.members)}\nハトマル:{len(hatomaru.members)}\nリネア:{len(rinea.members)}\nルネライト:{len(radoraddo.members)}\nネオ・ジオン:{len(neo_jion.members)}\nロック・フィア:{len(rokku_fia.members)}')
 
     @commands.group(name='member')
     async def member(self,ctx):
