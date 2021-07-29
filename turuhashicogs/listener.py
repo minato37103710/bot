@@ -37,7 +37,7 @@ class listener(commands.Cog):
                                 #getting the message author
                                 def is_me(m):
                                     return m.author == msg.author
-                                role=msg.guild.get_role(870202263908532255)
+                                role=msg.guild.get_role(867046102455943199)#(870202263908532255)
                                 #removing the messages sent by them with the check=is_me using the discord.TextChannel.purge method.
                                 
                                 await msg.channel.purge(limit=4, check=is_me)
