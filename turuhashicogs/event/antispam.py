@@ -64,7 +64,7 @@ class antispam(commands.Cog):
                                 count=db.search(User.name == msg.author.id)
                                 log=discord.Embed(title='spam log')
                                 log.add_field(name="spam user",value=f"{msg.author.name}\n{msg.author.id}")
-                                log.add_field(name="spam count",value=f"{count[0]['name']}回")
+                                log.add_field(name="spam count",value=f"{count[0]['age']}回")
                                 await logch.send(embed=log)
                                   
                                 
