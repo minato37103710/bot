@@ -1,9 +1,14 @@
 import discord
 from discord.ext import commands
 import glob, random
-from tinydb import TinyDB, Query
 import asyncio
+from tinydb import TinyDB, Query
+from tinydb.operations import increment
+import json
 
+db=TinyDB('spam.json')
+
+User = Query()
 
 class listener(commands.Cog):
     def __init__(self, bot):
@@ -11,7 +16,7 @@ class listener(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self,msg):
-        
+        logch=self.bot.get_channel(870501783770910720)
         if 'https://' in msg.content:
             if '.png' in msg.content:
                 pass
@@ -24,10 +29,23 @@ class listener(commands.Cog):
                     await msg.channel.purge(limit=1)
                     await msg.channel.send(f'荒連youtubeURLを検知したため削除&kickいたしました\n送信者:{msg.author.mention}')
                     await msg.author.kick(reason='荒連youtubeURLを検知したため')
+                    if len(db.search(User.name==msg.author.id)) > 0:
+                        pass
+                                
+                    else: 
+                        db.insert({'name':msg.author.id, 'age':1})
+                
+                db.update(increment('age'), User.name == msg.author.id)
             
             else:
                 await msg.channel.purge(limit=1)
                 await msg.channel.send(f'URLを検知したため削除いたしました\n送信者:{msg.author.mention}')
-
+                if len(db.search(User.name==msg.author.id)) > 0:
+                    pass
+                                
+                else: 
+                    db.insert({'name':msg.author.id, 'age':1})
+                
+                db.update(increment('age'), User.name == msg.author.id)
 def setup(bot):
     bot.add_cog(listener(bot))
