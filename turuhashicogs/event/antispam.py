@@ -5,6 +5,7 @@ from tinydb import TinyDB, Query
 import asyncio
 from tinydb import TinyDB, Query
 from tinydb.operations import increment
+import json
 
 db=TinyDB('spam.json')
 
@@ -66,6 +67,7 @@ class antispam(commands.Cog):
                                 log.add_field(name="spam user",value=f"{msg.author.name}\n{msg.author.id}")
                                 log.add_field(name="spam count",value=f"{count[0]['age']}回")
                                 await logch.send(embed=log)
+                                json.load
                                   
                                 
                                 spamming_list.remove(str(msg.author.id))
