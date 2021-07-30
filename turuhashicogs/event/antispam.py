@@ -47,7 +47,7 @@ class antispam(commands.Cog):
                                 mes=await msg.channel.send(f"Stop spamming {msg.author.mention}")
                                 await msg.author.send('Please stop spam')
                                 await asyncio.sleep(5)
-                                await msg.channel.purge(limit=10,check=bot)
+                                await msg.channel.purge(limit=4,check=bot)
                                   
                                 #removing them from the list
                                 spamming_list.remove(str(msg.author.id))
