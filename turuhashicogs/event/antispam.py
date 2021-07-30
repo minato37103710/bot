@@ -40,8 +40,7 @@ class antispam(commands.Cog):
                                     return m.author == msg.author
                                 def bot(m):
                                     return m.author == self.bot.user
-                                role=msg.guild.get_role(867046102455943199)#(870202263908532255)
-                                #removing the messages sent by them with the check=is_me using the discord.TextChannel.purge method.
+                                role=msg.guild.get_role(867046102455943199)
                                 await msg.author.add_roles(role) 
                                 await msg.channel.purge(limit=12, check=is_me)
                                 mes=await msg.channel.send(f"Stop spamming {msg.author.mention}")
