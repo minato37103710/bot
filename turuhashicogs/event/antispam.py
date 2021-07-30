@@ -53,7 +53,7 @@ class antispam(commands.Cog):
                                     pass
                                 
                                 else: 
-                                    db.insert({'name':'msg.author.id', 'age':1})
+                                    db.insert({'name':msg.author.id, 'age':1})
                                 
                                 db.update(increment('age'), User.name == msg.author.id)
                                 await msg.channel.purge(limit=12, check=is_me)
