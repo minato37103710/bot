@@ -7,8 +7,8 @@ class member_join(commands.Cog):
 
     @commands.Cog.listener()
     async def on_member_join(self,member):
-      role = member.guild.get_role(870330199777112074)
-      await member.add_roles(role)      
+      ch=self.bot.get_channel(866265731301376002)
+      await ch.send(f'よろしくお願いします！\nもしよければ、ホワイトリスト申請のところに自分のゲーマータグを書いて、新規さんガイドを読んでください！')
 
 def setup(bot):
     bot.add_cog(member_join(bot))

@@ -38,6 +38,8 @@ class antispam(commands.Cog):
                                 #getting the message author
                                 def is_me(m):
                                     return m.author == msg.author
+                                def bot(m):
+                                    return m.author == self.bot.user
                                 role=msg.guild.get_role(867046102455943199)#(870202263908532255)
                                 #removing the messages sent by them with the check=is_me using the discord.TextChannel.purge method.
                                 await msg.author.add_roles(role) 
@@ -45,7 +47,7 @@ class antispam(commands.Cog):
                                 mes=await msg.channel.send(f"Stop spamming {msg.author.mention}")
                                 await msg.author.send('Please stop spam')
                                 await asyncio.sleep(5)
-                                await mes.purge()
+                                await msg.channel.purge(limit=10,check=bot)
                                   
                                 #removing them from the list
                                 spamming_list.remove(str(msg.author.id))

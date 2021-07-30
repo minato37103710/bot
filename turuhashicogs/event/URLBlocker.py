@@ -22,7 +22,8 @@ class listener(commands.Cog):
             elif 'youtube' in msg.content:
                 if 'RQR4c0w_gsk' in msg.content:
                     await msg.channel.purge(limit=1)
-                    await msg.channel.send(f'荒連youtubeURLを検知したため削除いたしました\n送信者:{msg.author.mention}')
+                    await msg.channel.send(f'荒連youtubeURLを検知したため削除&kickいたしました\n送信者:{msg.author.mention}')
+                    await msg.author.kick(reason='荒連youtubeURLを検知したため')
             
             else:
                 await msg.channel.purge(limit=1)
