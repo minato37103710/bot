@@ -36,6 +36,8 @@ class listener(commands.Cog):
                         db.insert({'name':msg.author.id, 'age':1})
                 
                 db.update(increment('age'), User.name == msg.author.id)
+            elif 'amazon' in msg.content:
+                pass
             
             else:
                 await msg.channel.purge(limit=1)
