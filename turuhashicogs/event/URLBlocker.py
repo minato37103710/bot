@@ -29,13 +29,7 @@ class listener(commands.Cog):
                     await msg.channel.purge(limit=1)
                     await msg.channel.send(f'荒連youtubeURLを検知したため削除&kickいたしました\n送信者:{msg.author.mention}')
                     await msg.author.kick(reason='荒連youtubeURLを検知したため')
-                    if len(db.search(User.name==msg.author.id)) > 0:
-                        pass
-                                
-                    else: 
-                        db.insert({'name':msg.author.id, 'age':1})
                 
-                db.update(increment('age'), User.name == msg.author.id)
             elif 'amazon' in msg.content:
                 pass
             
