@@ -29,7 +29,9 @@ class listener(commands.Cog):
                     await msg.channel.purge(limit=1)
                     await msg.channel.send(f'荒連youtubeURLを検知したため削除&kickいたしました\n送信者:{msg.author.mention}')
                     await msg.author.kick(reason='荒連youtubeURLを検知したため')
-
+          
+                else:
+                    pass
             elif 'amazon' in msg.content:
                 pass
             
