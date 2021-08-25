@@ -17,7 +17,7 @@ class listener(commands.Cog):
     @commands.Cog.listener()
     async def on_message(self,msg):
         logch=self.bot.get_channel(870501783770910720)
-        if 'https://' or 'http://'in msg.content:
+        if 'https://' in msg.content or 'http://'in msg.content:
             if '.png' in msg.content:
                 pass
 
@@ -30,8 +30,6 @@ class listener(commands.Cog):
                     await msg.channel.send(f'荒連youtubeURLを検知したため削除&kickいたしました\n送信者:{msg.author.mention}')
                     await msg.author.kick(reason='荒連youtubeURLを検知したため')
           
-                else:
-                    pass
             elif 'amazon' in msg.content:
                 pass
             
