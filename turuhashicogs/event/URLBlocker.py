@@ -35,7 +35,7 @@ class listener(commands.Cog):
             
             else:
                 await msg.channel.purge(limit=1)
-                await msg.channel.send(f'URLを検知したため削除いたしました\n{msg.author.mention}\n対象url:{msg.content.replace("https", "対象URL")}')
+                await msg.channel.send(f'URLを検知したため削除いたしました\n{msg.author.mention}\n{msg.content.replace("https", "対象URL")}')
                 if len(db.search(User.name==msg.author.id)) > 0:
                     pass
                                 
