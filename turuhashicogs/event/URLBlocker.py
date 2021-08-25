@@ -24,7 +24,7 @@ class listener(commands.Cog):
             elif '.jpg' in msg.content:
                 pass
 
-            elif 'youtube' in msg.content:
+            elif 'youtube' in msg.content or 'youtu.be' in msg.content:
                 if 'RQR4c0w_gsk' in msg.content:
                     await msg.channel.purge(limit=1)
                     await msg.channel.send(f'荒連youtubeURLを検知したため削除&kickいたしました\n送信者:{msg.author.mention}')
