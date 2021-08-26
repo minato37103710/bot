@@ -5,7 +5,7 @@ class nuke_joke(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(name='nuke')
+    @commands.command(name='nuke',description='テキストチャンネルのメッセージを全消しします')
     async def nuke(self,ctx):
         channel=ctx.channel
         await ctx.send('8秒以内に確認と送信してね')
