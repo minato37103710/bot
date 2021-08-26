@@ -3,7 +3,7 @@ from discord.ext import commands,tasks
 
 
 intent=discord.Intents.all()
-prefix = '$'
+prefix = 'T!'
 
 
 class Greet(commands.Cog, name='あいさつ'):
