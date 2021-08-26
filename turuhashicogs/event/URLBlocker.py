@@ -32,7 +32,10 @@ class listener(commands.Cog):
           
             elif 'amazon' in msg.content:
                 pass
-            
+              
+            elif 'google' in msg.content:
+                pass
+              
             else:
                 await msg.channel.purge(limit=1)
                 await msg.channel.send(f'URLを検知したため削除いたしました\n{msg.author.mention}\n{msg.content.replace("https", "対象URL")}')
