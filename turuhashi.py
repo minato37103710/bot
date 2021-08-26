@@ -34,7 +34,7 @@ class JapaneseHelpCommand(commands.DefaultHelpCommand):
                 f"各カテゴリの説明: {prefix}help <カテゴリ名>\n")
 
 
-bot = commands.Bot(command_prefix=prefix, help_command=JapaneseHelpCommand())
+bot = commands.Bot(command_prefix=prefix, help_command=JapaneseHelpCommand(),intents=intent)
 bot.add_cog(Greet(bot=bot))
 
 bot.author_id=757106917947605034
