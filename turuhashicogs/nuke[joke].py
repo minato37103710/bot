@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 
-class nuke-joke(commands.Cog):
+class nuke_joke(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
@@ -11,4 +11,4 @@ class nuke-joke(commands.Cog):
         await channel.send(f'{msg.author.mention}、こんにちは！')
 
 def setup(bot):
-    bot.add_cog(nuke-joke(bot))
+    bot.add_cog(nuke_joke(bot))
