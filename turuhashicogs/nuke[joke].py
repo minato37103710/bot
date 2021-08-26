@@ -14,9 +14,10 @@ class nuke_joke(commands.Cog,name='ジョークコマンド'):
 
         def hello_check(m):
             return m.content == '確認' and m.channel == channel and m.author==ctx.author
-
-        msg = await self.bot.wait_for('message', check=hello_check,timeout=8)
-        await channel.send(f'{ctx.author.mention}、え？何しようとしてるの？（）メッセージ全消しとか害悪すぎでしょw')
-
+        try:
+            msg = await self.bot.wait_for('message', check=hello_check,timeout=8)
+            await channel.send(f'{ctx.author.mention}、え？何しようとしてるの？（）メッセージ全消しとか害悪すぎでしょw')
+        exceptAsyncio.TimeoutError:
+            await channel.send('時間だ')
 def setup(bot):
     bot.add_cog(nuke_joke(bot))
