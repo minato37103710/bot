@@ -6,7 +6,7 @@ class nuke_joke(commands.Cog):
         self.bot = bot
 
     @commands.command(name='nuke')
-    async def nuke(self,ctx)
+    async def nuke(self,ctx):
         msg = await client.wait_for('ctx',timeout=5)
         await channel.send(f'{msg.author.mention}、こんにちは！')
 
