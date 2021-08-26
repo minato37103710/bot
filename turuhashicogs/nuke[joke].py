@@ -11,7 +11,7 @@ class nuke_joke(commands.Cog):
         await ctx.send('8秒以内に確認と送信してね')
 
         def hello_check(m):
-            return m.content == '確認' and m.channel == channel
+            return m.content == '確認' and m.channel == channel and m.author==ctx.author
 
         msg = await self.bot.wait_for('message', check=hello_check,timeout=8)
         await channel.send(f'{ctx.author.mention}、え？何しようとしてるの？（）メッセージ全消しとか害悪すぎでしょw')
