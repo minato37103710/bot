@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+import asyncio
 
 class nuke_joke(commands.Cog,name='ジョークコマンド'):
     def __init__(self, bot):
