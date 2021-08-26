@@ -8,6 +8,7 @@ class nuke_joke(commands.Cog):
 
     @commands.command(name='nuke',description='テキストチャンネルのメッセージを全消しします')
     async def nuke(self,ctx):
+        """ジョークコマンドです"""
         channel=ctx.channel
         await ctx.send('8秒以内に確認と送信してね')
 
