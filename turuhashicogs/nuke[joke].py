@@ -3,6 +3,7 @@ from discord.ext import commands
 
 class nuke_joke(commands.Cog):
     def __init__(self, bot):
+        super().__init__()
         self.bot = bot
 
     @commands.command(name='nuke',description='テキストチャンネルのメッセージを全消しします')
