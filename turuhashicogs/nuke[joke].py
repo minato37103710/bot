@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 
-class nuke-joke(command.Cog):
+class nuke-joke(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
