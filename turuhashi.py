@@ -4,6 +4,8 @@ from discord.ext import commands,tasks
 
 intent=discord.Intents.all()
 
+prefix='t!'
+
 class JapaneseHelpCommand(commands.DefaultHelpCommand):
     def __init__(self):
         super().__init__()
@@ -16,7 +18,7 @@ class JapaneseHelpCommand(commands.DefaultHelpCommand):
                 f"各カテゴリの説明: {prefix}help <カテゴリ名>\n")
 
 
-bot = commands.Bot(command_prefix="!",intents=intent,help_command=JapaneseHelpCommand(),
+bot = commands.Bot(command_prefix=prefix,intents=intent,help_command=JapaneseHelpCommand(),
     description="ヘルプコマンドの説明用BOT")
 
 bot.author_id=757106917947605034
