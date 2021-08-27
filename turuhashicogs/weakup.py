@@ -14,13 +14,9 @@ class weakup(commands.Cog):
     async def on_ready(self):
       await self.bot.change_presence(activity=discord.Game('起動中'))      
       self.bot.load_extension("turuhashicogs.member")
-      print('memberロード完了')
       self.bot.load_extension("turuhashicogs.dev")
-      print('devロード完了')
       self.bot.load_extension('turuhashicogs.adminonly')
-      print('adminonlyロード完了')
       self.bot.load_extension('turuhashicogs.music')
-      print('musicロード完了')
       self.bot.load_extension('cogs.eval')
       self.bot.load_extension('turuhashicogs.user')
       self.bot.load_extension('turuhashicogs.error_get')
@@ -29,7 +25,6 @@ class weakup(commands.Cog):
       self.bot.load_extension('turuhashicogs.event.URLBlocker')
       self.bot.load_extension('turuhashicogs.event.join')
       self.bot.load_extension('turuhashicogs.nuke[joke]')
-      print('全cogロード完了')
       self.bot.load_extension('cogs.ping')
       await self.bot.change_presence(activity=discord.Game('起動完了'))
 
