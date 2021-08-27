@@ -11,7 +11,7 @@ class listener(commands.Cog):
     async def on_message(self,msg):
         logch=self.bot.get_channel(870501783770910720)
         if 'giscord.gg' in msg.content:
-              await msg.channel.purge(limit=1,check=is_you)
+              await msg.channel.purge(limit=1)
               await msg.channel.send(f'URLを検知したため削除いたしました\n発言者{msg.author.mention}')
 
         elif 'youtube' in msg.content or 'youtu.be' in msg.content:
