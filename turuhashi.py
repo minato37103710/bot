@@ -36,7 +36,7 @@ class JapaneseHelpCommand(commands.DefaultHelpCommand):
     @bot.event
     async def on_command_error(ctx, error):
       if isinstance(error,commands.errors.CommandNotFound):
-          await ctx.send("エラー！") 
+          await ctx.send('エラー！') 
 
     
 bot = commands.Bot(command_prefix=prefix, help_command=JapaneseHelpCommand(),intents=intent)
