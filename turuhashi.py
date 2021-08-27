@@ -33,7 +33,12 @@ class JapaneseHelpCommand(commands.DefaultHelpCommand):
         return (f"各コマンドの説明: {prefix}help <コマンド名>\n"
                 f"各カテゴリの説明: {prefix}help <カテゴリ名>\n")
 
+    @bot.event
+    async def on_command_error(ctx, error):
+      if isinstance(error,commands.errors.CommandNotFound):
+          await ctx.send("エラー！") 
 
+    
 bot = commands.Bot(command_prefix=prefix, help_command=JapaneseHelpCommand(),intents=intent)
 bot.add_cog(Greet(bot=bot))
 
