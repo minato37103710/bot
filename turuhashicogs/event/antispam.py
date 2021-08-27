@@ -49,25 +49,16 @@ class antispam(commands.Cog):
                                 logch=self.bot.get_channel(870501783770910720)
 
                                 await msg.author.add_roles(role)
-
-                                if len(db.search(User.name==msg.author.id)) > 0:
-                                    pass
                                 
-                                else: 
-                                    db.insert({'name':msg.author.id, 'age':1})
-                                
-                                db.update(increment('age'), User.name == msg.author.id)
+                         
                                 await msg.channel.purge(limit=12, check=is_me)
                                 mes=await msg.channel.send(f"Stop spamming {msg.author.mention}")
                                 await msg.author.send('Please stop spam')
                                 await asyncio.sleep(5)
                                 await msg.channel.purge(limit=4,check=bot)
-                                count=db.search(User.name == msg.author.id)
                                 log=discord.Embed(title='spam log')
-                                log.add_field(name="spam user",value=f"{msg.author.name}\n{msg.author.id}")
-                                log.add_field(name="spam count",value=f"{count[0]['age']}回")
+                                log.add_field(name="spam user",value=f"{msg.author.name}\n{msg.author.id)
                                 await logch.send(embed=log)
-                                json.load
                                   
                                 
                                 spamming_list.remove(str(msg.author.id))
