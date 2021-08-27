@@ -16,8 +16,8 @@ class member_join(commands.Cog):
       usab.add_field(name='名前', value=f'**{member.display_name}#{member.discriminator}**')
       usab.add_field(name='あなたはBot?', value=member.bot)
       usab.add_field(name='ID', value=member.id)
-      usab.add_field(name='作成時間', value=member.created_at.datetime.astimezone(timezone('Asia/Tokyo'))
-      usab.add_field(name='サーバーに参加した時間', value=member.joined_at.astimezone(timezone('Asia/Tokyo'))
+      usab.add_field(name='作成時間', value=member.created_at)
+      usab.add_field(name='サーバーに参加した時間', value=member.joined_at)
       await ch1.send(f'よろしくお願いします！\nもしよければ、ホワイトリスト申請のところに自分のゲーマータグを書いて、新規さんガイドを読んでください！')
       await ch2.send(embed=usab)
         
