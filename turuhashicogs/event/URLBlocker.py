@@ -11,8 +11,6 @@ class listener(commands.Cog):
     async def on_message(self,msg):
         logch=self.bot.get_channel(870501783770910720)
         if 'giscord.gg' in msg.content:
-              def is_you(m):
-                    return m.author==msg.author
               await msg.channel.purge(limit=1,check=is_you)
               await msg.channel.send(f'URLを検知したため削除いたしました\n発言者{msg.author.mention}')
 
