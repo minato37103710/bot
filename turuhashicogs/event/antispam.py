@@ -57,7 +57,7 @@ class antispam(commands.Cog):
                                 await asyncio.sleep(5)
                                 await msg.channel.purge(limit=4,check=bot)
                                 log=discord.Embed(title='spam log')
-                                log.add_field(name="spam user",value=f"{msg.author.name}\n{msg.author.id})
+                                log.add_field(name="spam user",value=f"{msg.author.name}\n{msg.author.id}')
                                 await logch.send(embed=log)
                                   
                                 
