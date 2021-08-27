@@ -13,7 +13,10 @@ class weakup(commands.Cog):
     @commands.Cog.listener()
     async def on_ready(self):
       await self.bot.change_presence(activity=discord.Game('起動中'))      
-      self.bot.load_extension("turuhashicogs.member")
+      try:
+          self.bot.load_extension("turuhashicogs.member")
+      except:
+          await self.bot.change_presence(activity=discord.Game('エラーが発生しました'), status=discord.Status.dnd)
       self.bot.load_extension("turuhashicogs.dev")
       self.bot.load_extension('turuhashicogs.adminonly')
       self.bot.load_extension('turuhashicogs.music')
