@@ -17,7 +17,6 @@ class weakup(commands.Cog):
       self.bot.load_extension("turuhashicogs.dev")
       self.bot.load_extension('turuhashicogs.adminonly')
       self.bot.load_extension('turuhashicogs.music')
-      self.bot.load_extension('cogs.eval')
       self.bot.load_extension('turuhashicogs.user')
       self.bot.load_extension('turuhashicogs.error_get')
       self.bot.load_extension('turuhashicogs.button')
@@ -25,7 +24,8 @@ class weakup(commands.Cog):
       self.bot.load_extension('turuhashicogs.event.URLBlocker')
       self.bot.load_extension('turuhashicogs.event.join')
       self.bot.load_extension('turuhashicogs.nuke[joke]')
-      self.bot.load_extension('cogs.ping')
+      self.bot.load_extension('turuhashicogs.ping')
+
 
 def setup(bot):
 	bot.add_cog(weakup(bot))
