@@ -39,7 +39,6 @@ bot.add_cog(Greet(bot=bot))
 @bot.event
 async def on_command_error(ctx, error):
   if isinstance(error,commands.errors.CommandNotFound):
-     except as e:
      err=discord.Embed(title='404 not found',description=f'そのようなコマンドは存在しません\n{e}')
      await ctx.send(embed=err)
     
