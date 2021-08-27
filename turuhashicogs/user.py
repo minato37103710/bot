@@ -14,8 +14,8 @@ class user(commands.Cog):
         usab.add_field(name='名前', value=f'**{member.display_name}#{member.discriminator}**')
         usab.add_field(name='あなたはBot?', value=member.bot)
         usab.add_field(name='ID', value=member.id)
-        usab.add_field(name='作成時間', value=member.created_at)
-        usab.add_field(name='サーバーに参加した時間', value=member.joined_at)
+        usab.add_field(name='作成時間', value=member.created_at+datetime.timedelta(hours=9))
+        usab.add_field(name='サーバーに参加した時間', value=member.joined_at+datetime.timedelta(hours=9))
         await ctx.send(embed=usab)
 
     @commands.command(name='userinfo')
@@ -26,8 +26,8 @@ class user(commands.Cog):
         usab.set_thumbnail(url=user.avatar.url)
         usab.add_field(name='名前', value=f'**{user}**')
         usab.add_field(name='あなたはBot?', value=user.bot)
-        usab.add_field(name='ID', value=user.id)
-        usab.add_field(name='作成時間', value=user.created_at)
+        usab.add_field(name='ID', value=user.id+datetime.timedelta(hours=9))
+        usab.add_field(name='作成時間', value=user.created_at+datetime.timedelta(hours=9))
         await ctx.send(embed=usab)
 
 def setup(bot):
