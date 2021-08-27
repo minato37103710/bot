@@ -29,7 +29,6 @@ class weakup(commands.Cog):
       self.bot.load_extension('turuhashicogs.event.join')
       self.bot.load_extension('turuhashicogs.nuke[joke]')
       self.bot.load_extension('cogs.ping')
-      await self.bot.change_presence(activity=discord.Game('起動完了'))
 
 def setup(bot):
 	bot.add_cog(weakup(bot))
