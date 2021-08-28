@@ -21,7 +21,7 @@ class Confirm(discord.ui.View):
     # This one is similar to the confirmation button except sets the inner value to `False`
     @discord.ui.button(label='✌', style=discord.ButtonStyle.grey)
     async def cancel(self, button: discord.ui.Button, interaction: discord.Interaction):
-        j='グー✊','チョキ✌','パー✋'
+        j='グー✊','パー✋','チョキ✌'
         a=random.choice(j)
         await interaction.response.send_message(f'{a}', ephemeral=True)
         self.value = False
