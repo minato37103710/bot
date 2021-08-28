@@ -29,7 +29,7 @@ class buttons(commands.Cog,name='ボタン'):
 
     @commands.command(name='ask')
     async def ask(ctx: commands.Context):
-    """Asks the user a question to confirm something."""
+      """Asks the user a question to confirm something."""
     # We create the view and assign it to a variable so we can wait for it later.
       view = Confirm()
       await ctx.send('Do you want to continue?', view=view)
