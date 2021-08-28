@@ -12,7 +12,7 @@ class Confirm(discord.ui.View):
     # We also send the user an ephemeral message that we're confirming their choice.
     @discord.ui.button(label='✊', style=discord.ButtonStyle.green)
     async def confirm(self, button: discord.ui.Button, interaction: discord.Interaction):
-        j='グー✊','チョキ✌','パー✋'
+        j=['グー✊','チョキ✌','パー✋']
         a=random.choice(j)
         await interaction.response.send_message(f'{a}', ephemeral=True)
         self.value = True
@@ -21,7 +21,7 @@ class Confirm(discord.ui.View):
     # This one is similar to the confirmation button except sets the inner value to `False`
     @discord.ui.button(label='✌', style=discord.ButtonStyle.grey)
     async def cancel(self, button: discord.ui.Button, interaction: discord.Interaction):
-        j='グー✊','パー✋','チョキ✌'
+        j=['グー✊','パー✋','チョキ✌']
         a=random.choice(j)
         await interaction.response.send_message(f'{a}', ephemeral=True)
         self.value = False
