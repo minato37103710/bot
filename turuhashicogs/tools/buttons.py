@@ -26,4 +26,4 @@ class buttons(commands.Cog,name='ボタン'):
       await ctx.reply("test", view=view)
 
 def setup(bot):
-  bot.add_cog(ping(bot))
+  bot.add_cog(buttons(bot))
