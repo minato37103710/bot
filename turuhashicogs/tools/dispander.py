@@ -172,7 +172,7 @@ def compose_embed(message):
     )
     embed.set_author(
         name=message.author.display_name,
-        icon_url=message.author.avatar_url,
+        icon_url=message.author.avatar.url,
         url=message.jump_url
     )
     embed.set_footer(
