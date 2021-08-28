@@ -24,7 +24,7 @@ class Confirm(discord.ui.View):
 
 class buttons(commands.Cog,name='ボタン'):
     
-     def __init__(self,bot):
+    def __init__(self,bot):
          self.bot=bot
 
     @commands.command(name='ask')
