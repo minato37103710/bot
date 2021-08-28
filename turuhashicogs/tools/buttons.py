@@ -10,7 +10,7 @@ class Confirm(discord.ui.View):
     # When the confirm button is pressed, set the inner value to `True` and
     # stop the View from listening to more input.
     # We also send the user an ephemeral message that we're confirming their choice.
-    @discord.ui.button(label='Confirm', style=discord.ButtonStyle.green)
+    @discord.ui.button(label='✊', style=discord.ButtonStyle.green)
     async def confirm(self, button: discord.ui.Button, interaction: discord.Interaction):
         a=random.choice('グー✊','チョキ✌','パー✋')
         await interaction.response.send_message('Confirming', ephemeral=True)
@@ -18,7 +18,7 @@ class Confirm(discord.ui.View):
         self.stop()
 
     # This one is similar to the confirmation button except sets the inner value to `False`
-    @discord.ui.button(label='Cancel', style=discord.ButtonStyle.grey)
+    @discord.ui.button(label='✌', style=discord.ButtonStyle.grey)
     async def cancel(self, button: discord.ui.Button, interaction: discord.Interaction):
         a=random.choice('グー✊','チョキ✌','パー✋')
         await interaction.response.send_message(f'{a}', ephemeral=True)
