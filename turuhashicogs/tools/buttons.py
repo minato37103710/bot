@@ -27,7 +27,7 @@ class buttons(commands.Cog,name='ボタン'):
      def __init__(self,bot):
          self.bot=bot
 
-    @bot.command()
+    @commands.command(name='ask')
     async def ask(ctx: commands.Context):
     """Asks the user a question to confirm something."""
     # We create the view and assign it to a variable so we can wait for it later.
