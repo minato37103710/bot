@@ -1,29 +1,46 @@
 import discord
 from discord.ext import commands
 
+class Confirm(discord.ui.View):
+    def __init__(self):
+        super().__init__()
+        self.value = None
+
+    # When the confirm button is pressed, set the inner value to `True` and
+    # stop the View from listening to more input.
+    # We also send the user an ephemeral message that we're confirming their choice.
+    @discord.ui.button(label='Confirm', style=discord.ButtonStyle.green)
+    async def confirm(self, button: discord.ui.Button, interaction: discord.Interaction):
+        await interaction.response.send_message('Confirming', ephemeral=True)
+        self.value = True
+        self.stop()
+
+    # This one is similar to the confirmation button except sets the inner value to `False`
+    @discord.ui.button(label='Cancel', style=discord.ButtonStyle.grey)
+    async def cancel(self, button: discord.ui.Button, interaction: discord.Interaction):
+        await interaction.response.send_message('Cancelling', ephemeral=True)
+        self.value = False
+        self.stop()
+
 class buttons(commands.Cog,name='ボタン'):
     
      def __init__(self,bot):
          self.bot=bot
 
-     async def test_interaction(self,view, button, interaction):
-    # Push me!が押されたら。
-       await interaction.channel.send("Pushed button.")
-
-     async def test_count(self,view, button, interaction):
-    # 数字が押されたら。
-       button.label = str(int(button.label) + 1)
-       await interaction.message.edit(view=view)
-
-     @commands.command(name="_componesy_test")
-     async def test(self,ctx):
-    # ViewをTestViewっていう名前で作る。
-      view = componesy.View("TestView")
-    # 上の二つを登録する。
-      view.add_item("button", test_interaction, label="Push me!")
-      view.add_item("button", test_count, label="0")
-    # viewを送信する。
-      await ctx.reply("test", view=view)
+    @bot.command()
+    async def ask(ctx: commands.Context):
+    """Asks the user a question to confirm something."""
+    # We create the view and assign it to a variable so we can wait for it later.
+      view = Confirm()
+      await ctx.send('Do you want to continue?', view=view)
+    # Wait for the View to stop listening for input...
+      await view.wait()
+      if view.value is None:
+        print('Timed out...')
+      elif view.value:
+        print('Confirmed...')
+      else:
+        print('Cancelled...')
 
 def setup(bot):
   bot.add_cog(buttons(bot))
