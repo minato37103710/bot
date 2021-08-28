@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+import random
 
 class Confirm(discord.ui.View):
     def __init__(self):
