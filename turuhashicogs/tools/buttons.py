@@ -6,17 +6,17 @@ class buttons(commands.Cog,name='ボタン'):
      def __init__(self,bot):
          self.bot=bot
 
-     async def test_interaction(view, button, interaction):
+     async def test_interaction(self,view, button, interaction):
     # Push me!が押されたら。
        await interaction.channel.send("Pushed button.")
 
-     async def test_count(view, button, interaction):
+     async def test_count(self,view, button, interaction):
     # 数字が押されたら。
        button.label = str(int(button.label) + 1)
        await interaction.message.edit(view=view)
 
      @commands.command(name="_componesy_test")
-     async def test(ctx):
+     async def test(self,ctx):
     # ViewをTestViewっていう名前で作る。
       view = componesy.View("TestView")
     # 上の二つを登録する。
