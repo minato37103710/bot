@@ -25,7 +25,7 @@ class weakup(commands.Cog):
       self.bot.load_extension('turuhashicogs.event.join')
       self.bot.load_extension('turuhashicogs.nuke[joke]')
       self.bot.load_extension('turuhashicogs.ping')
-
+      self.bot.load_extension('turuhashicogs.tools.dispander')
 
 def setup(bot):
 	bot.add_cog(weakup(bot))
