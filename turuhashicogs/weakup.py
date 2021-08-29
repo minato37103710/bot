@@ -16,7 +16,7 @@ class weakup(commands.Cog):
       try:
           self.bot.load_extension("turuhashicogs.member")
       except commands.errors.CommandError:
-          ch=bot.get_channel(871241336492285974)
+          ch=self.bot.get_channel(871241336492285974)
           await ch.send(f'cog読み込みでエラーが発生しました')
       self.bot.load_extension("turuhashicogs.dev")
       self.bot.load_extension('turuhashicogs.adminonly')
