@@ -61,4 +61,4 @@ class member(commands.Cog):
       await ctx.send(f'ラティベルク:{len(rathiberuku.members)}')
 
 def setup(bot):
-	bot.add_cog(member(bot))
+	bot.add_cog(member(bot)
