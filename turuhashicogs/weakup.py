@@ -27,6 +27,7 @@ class weakup(commands.Cog):
       self.bot.load_extension('turuhashicogs.ping')
       self.bot.load_extension('turuhashicogs.tools.dispander')
       self.bot.load_extension('turuhashicogs.tools.buttons')
-
+      self.bot.load_extension('turuhashicogs.tools.menu')
+	
 def setup(bot):
 	bot.add_cog(weakup(bot))
