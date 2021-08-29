@@ -37,7 +37,7 @@ class selects(commands.Cog):
         self.bot=bot
 
     @commands.command(name='select')
-    async def _select(self,ctx)
+    async def _select(self,ctx):
       view = DropdownView()
 
     # Sending a message containing our view
