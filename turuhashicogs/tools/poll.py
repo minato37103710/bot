@@ -71,4 +71,4 @@ class StrawPoll(commands.Cog):
 
 
 def setup(bot):
-    bot.add_cog(Poll(bot))
+    bot.add_cog(StrawPoll(bot))
