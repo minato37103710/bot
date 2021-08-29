@@ -44,4 +44,4 @@ class selects(commands.Cog):
       await ctx.send('Pick your favourite colour:', view=view)
 
 def setup(bot):
-    bot.add_cog(HugaList(bot))
+    bot.add_cog(selects(bot))
