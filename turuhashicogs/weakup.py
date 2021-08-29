@@ -15,7 +15,7 @@ class weakup(commands.Cog):
       await self.bot.change_presence(activity=discord.Game('起動中'))      
       try:
           self.bot.load_extension("turuhashicogs.member")
-      except CommandError:
+      except discord.CommandError:
           ch=bot.get_channel(871241336492285974)
           await ch.send(f'cog読み込みでエラーが発生しました')
       self.bot.load_extension("turuhashicogs.dev")
