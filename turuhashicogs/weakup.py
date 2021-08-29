@@ -20,7 +20,6 @@ class weakup(commands.Cog):
           await ch.send(f'cog読み込みでエラーが発生しました')
       self.bot.load_extension('turuhashicogs.music')
       self.bot.load_extension('turuhashicogs.user')
-      self.bot.load_extension('turuhashicogs.button')
       self.bot.load_extension('turuhashicogs.event.antispam')
       self.bot.load_extension('turuhashicogs.event.URLBlocker')
       self.bot.load_extension('turuhashicogs.event.join')
