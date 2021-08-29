@@ -18,11 +18,8 @@ class weakup(commands.Cog):
       except commands.errors.CommandError:
           ch=self.bot.get_channel(871241336492285974)
           await ch.send(f'cog読み込みでエラーが発生しました')
-      self.bot.load_extension("turuhashicogs.dev")
-      self.bot.load_extension('turuhashicogs.adminonly')
       self.bot.load_extension('turuhashicogs.music')
       self.bot.load_extension('turuhashicogs.user')
-      self.bot.load_extension('turuhashicogs.error_get')
       self.bot.load_extension('turuhashicogs.button')
       self.bot.load_extension('turuhashicogs.event.antispam')
       self.bot.load_extension('turuhashicogs.event.URLBlocker')
