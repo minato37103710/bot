@@ -8,8 +8,8 @@ class manus(commands.Cog ,name='メニューです'):
     def __init__(bot):
        self.bot=bot
 # the `hidden` keyword argument hides it from the help command. 
-    @bot.group(hidden=True)
-    async def secret(ctx: commands.Context):
+    @commands.group(hidden=True)
+    async def secret(self,ctx: commands.Context):
         """What is this "secret" you speak of?"""
         if ctx.invoked_subcommand is None:
             await ctx.send('Shh!', delete_after=5)
@@ -43,7 +43,7 @@ class manus(commands.Cog ,name='メニューです'):
 # it is best to lock it to be guild-only.
     @secret.command()
     @commands.guild_only()
-    async def text(ctx: commands.Context, name: str, *objects: typing.Union[discord.Role, discord.Member]):
+    async def text(self,ctx: commands.Context, name: str, *objects: typing.Union[discord.Role, discord.Member]):
         """This makes a text channel with a specified name 
         that is only visible to roles or members that are specified.
         """
@@ -57,7 +57,7 @@ class manus(commands.Cog ,name='メニューです'):
 
     @secret.command()
     @commands.guild_only()
-    async def voice(ctx: commands.Context, name: str, *objects: typing.Union[discord.Role, discord.Member]):
+    async def voice(self,ctx: commands.Context, name: str, *objects: typing.Union[discord.Role, discord.Member]):
         """This does the same thing as the `text` subcommand
         but instead creates a voice channel.
         """
@@ -72,7 +72,7 @@ class manus(commands.Cog ,name='メニューです'):
 
     @secret.command()
     @commands.guild_only()
-    async def emoji(ctx: commands.Context, emoji: discord.PartialEmoji, *roles: discord.Role):
+    async def emoji(self,ctx: commands.Context, emoji: discord.PartialEmoji, *roles: discord.Role):
         """This clones a specified emoji that only specified roles
         are allowed to use.
         """
