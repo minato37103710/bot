@@ -32,7 +32,7 @@ class DropdownView(discord.ui.View):
         # Adds the dropdown to our view object.
         self.add_item(Dropdown())
 
-class selects(commands.Cog)
+class selects(commands.Cog):
     def __init__(self,bot):
         self.bot=bot
 
