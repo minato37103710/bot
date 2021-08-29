@@ -5,7 +5,7 @@ from discord.ext import commands
 
 
 class menus(commands.Cog ,name='メニューです'):
-    def __init__(bot):
+    def __init__(self,bot):
        self.bot=bot
 # the `hidden` keyword argument hides it from the help command. 
     @commands.group(hidden=True)
