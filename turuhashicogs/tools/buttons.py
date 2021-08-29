@@ -14,7 +14,7 @@ class Confirm(discord.ui.View):
     async def goo(self, button: discord.ui.Button, interaction: discord.Interaction):
         j=['グー✊','チョキ✌','パー✋']
         a=random.choice(j)
-        await interaction.send_message(f'{a}', ephemeral=True)
+        await interaction.response.send_message(f'{a}', ephemeral=True)
         self.value = False
 
     # This one is similar to the confirmation button except sets the inner value to `False`
@@ -22,14 +22,14 @@ class Confirm(discord.ui.View):
     async def scissors(self, button: discord.ui.Button, interaction: discord.Interaction):
         j=['グー✊','パー✋','チョキ✌']
         a=random.choice(j)
-        await interaction.send_message(f'{a}', ephemeral=True)
+        await interaction.response.send_message(f'{a}', ephemeral=True)
         self.value = False
         
     @discord.ui.button(label='✋', style=discord.ButtonStyle.grey)
     async def par(self, button: discord.ui.Button, interaction: discord.Interaction):
         j=['グー✊','パー✋','チョキ✌']
         a=random.choice(j)
-        await interaction.send_message(f'{a}', ephemeral=True)
+        await interaction.response.send_message(f'{a}', ephemeral=True)
         self.value = False
 
 class buttons(commands.Cog,name='ボタン'):
