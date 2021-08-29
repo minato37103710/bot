@@ -88,6 +88,6 @@ class manus(commands.Cog ,name='メニューです'):
             roles=roles,
             reason='Very secret business.'
         )
-     
-setup def(bot):
+ 
+def setup(bot):
   bot.add_cog(menus(bot))
