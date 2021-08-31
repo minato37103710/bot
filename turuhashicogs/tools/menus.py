@@ -41,7 +41,7 @@ class selects(commands.Cog):
       view = DropdownView()
 
     # Sending a message containing our view
-      await ctx.response.send_message('Pick your favourite colour:', view=view)
+      await ctx.response.send('Pick your favourite colour:', view=view)
 
 def setup(bot):
     bot.add_cog(selects(bot))
