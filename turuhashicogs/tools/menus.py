@@ -22,7 +22,7 @@ class Dropdown(discord.ui.Select):
         # the user's favourite colour or choice. The self object refers to the
         # Select object, and the values attribute gets a list of the user's 
         # selected options. We only want the first one.
-        await interaction.response.send_message(f'{interaction.user.display_name} favourite colour is {self.values[0]}')
+        await interaction.response.send_message(f'favourite colour is {self.values[0]}')
 
 
 class DropdownView(discord.ui.View):
