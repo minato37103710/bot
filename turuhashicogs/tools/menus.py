@@ -1,6 +1,11 @@
 import discord
 from discord.ext import commands
 import typing
+from tinydb import TinyDB, Query
+
+db=TinyDB('color.json')
+
+user = Query()
 
 class Dropdown(discord.ui.Select):
     def __init__(self):
@@ -23,8 +28,11 @@ class Dropdown(discord.ui.Select):
         # Select object, and the values attribute gets a list of the user's 
         # selected options. We only want the first one.
         await interaction.response.send_message(f'{interaction.user.display_name} favourite colour is {self.values[0]}')
-
-
+        if db.search(que.name == interaction.user.id)<0:
+            db.insert({'name':interaction.user.id , 'color':self.values[0]})
+        else:
+            db.update({'color':self.values[0]}, user.name == interaction.user.id)
+            
 class DropdownView(discord.ui.View):
     def __init__(self):
         super().__init__()
