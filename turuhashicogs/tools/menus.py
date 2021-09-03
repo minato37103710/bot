@@ -12,7 +12,7 @@ class Dropdown(discord.ui.Select):
 
         # ドロップダウン内に表示されるオプションを設定します。
         options = [
-            discord.SelectOption(label='ハトマル', description='ハトマルの説明はありません'),
+            discord.SelectOption(label='ハトマル', description='ハトマル国の説明が見れます'),
             discord.SelectOption(label='Green', description='Your favourite colour is green', emoji='🟩'),
             discord.SelectOption(label='Blue', description='Your favourite colour is blue', emoji='🟦')
         ]
@@ -28,10 +28,7 @@ class Dropdown(discord.ui.Select):
         # Selectオブジェクト、values属性は、ユーザーの 
         # 選択されたオプション 私たちは最初の1つだけが欲しいのです。
         await interaction.response.send_message(f'{interaction.user.display_name} favourite colour is {self.values[0]}')
-        if len(db.search(use.name == interaction.user.id))<=0:
-            db.insert({'name':interaction.user.id , 'color':self.values[0]})
-        else:
-            db.update({'color':self.values[0]}, use.name == interaction.user.id)
+
 class DropdownView(discord.ui.View):
     def __init__(self):
         super().__init__()
