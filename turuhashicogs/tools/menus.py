@@ -23,10 +23,10 @@ class Dropdown(discord.ui.Select):
         super().__init__(placeholder='国を選択してください', min_values=1, max_values=1, options=options)
 
     async def callback(self, interaction: discord.Interaction):
-        # Use the interaction object to send a response message containing
-        # the user's favourite colour or choice. The self object refers to the
-        # Select object, and the values attribute gets a list of the user's 
-        # selected options. We only want the first one.
+        # インタラクションオブジェクトを使用して、以下の内容のレスポンスメッセージを送信します。
+        # は、ユーザーの好きな国や選択肢。自己のオブジェクトは、参照する
+        # Selectオブジェクト、values属性は、ユーザーの 
+        # 選択されたオプション 私たちは最初の1つだけが欲しいのです。
         await interaction.response.send_message(f'{interaction.user.display_name} favourite colour is {self.values[0]}')
         if len(db.search(use.name == interaction.user.id))<=0:
             db.insert({'name':interaction.user.id , 'color':self.values[0]})
@@ -36,7 +36,7 @@ class DropdownView(discord.ui.View):
     def __init__(self):
         super().__init__()
 
-        # Adds the dropdown to our view object.
+        # ビューオブジェクトにドロップダウンを追加します。
         self.add_item(Dropdown())
 
 class selects(commands.Cog):
@@ -47,7 +47,7 @@ class selects(commands.Cog):
     async def _select(self,ctx):
       view = DropdownView()
 
-    # Sending a message containing our view
+    # ビューを含むメッセージの送信
       await ctx.send('Pick your favourite colour:', view=view)
 
 def setup(bot):
