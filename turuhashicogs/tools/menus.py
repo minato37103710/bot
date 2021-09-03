@@ -10,16 +10,16 @@ use = Query()
 class Dropdown(discord.ui.Select):
     def __init__(self):
 
-        # Set the options that will be presented inside the dropdown
+        # ドロップダウン内に表示されるオプションを設定します。
         options = [
             discord.SelectOption(label='ハトマル', description='ハトマルの説明はありません'),
             discord.SelectOption(label='Green', description='Your favourite colour is green', emoji='🟩'),
             discord.SelectOption(label='Blue', description='Your favourite colour is blue', emoji='🟦')
         ]
 
-        # The placeholder is what will be shown when no option is chosen
-        # The min and max values indicate we can only pick one of the three options
-        # The options parameter defines the dropdown options. We defined this above
+        # プレースホルダーは、オプションが選択されなかった場合に表示されるものです。
+        # 最小値と最大値は、3つの選択肢の中から1つしか選べないことを示しています。
+        # optionsパラメータは、ドロップダウンのオプションを定義します。上記で定義した
         super().__init__(placeholder='国を選択してください', min_values=1, max_values=1, options=options)
 
     async def callback(self, interaction: discord.Interaction):
