@@ -14,19 +14,20 @@ class weakup(commands.Cog):
     async def on_ready(self):
       await self.bot.change_presence(activity=discord.Game('起動中'))      
       try:
-          self.bot.load_extension("turuhashicogs.tools.member")
+          self.bot.load_extension("cogs.tools.member")
       except commands.errors.CommandError:
           ch=self.bot.get_channel(871241336492285974)
           await ch.send(f'cog読み込みでエラーが発生しました')
-      self.bot.load_extension('turuhashicogs.user')
-      self.bot.load_extension('turuhashicogs.event.antispam')
-      self.bot.load_extension('turuhashicogs.event.URLBlocker')
-      self.bot.load_extension('turuhashicogs.event.join')
-      self.bot.load_extension('turuhashicogs.nuke[joke]')
-      self.bot.load_extension('turuhashicogs.ping')
-      self.bot.load_extension('turuhashicogs.tools.dispander')
-      self.bot.load_extension('turuhashicogs.tools.buttons')
-      self.bot.load_extension('turuhashicogs.tools.menus')
+      self.bot.load_extension('cogs.tools.user')
+      self.bot.load_extension('cogs.event.antispam')
+      self.bot.load_extension('cogs.event.URLBlocker')
+      self.bot.load_extension('cogs.event.join')
+      self.bot.load_extension('cogs.event.message')
+      self.bot.load_extension('cogs.tools.nuke[joke]')
+      self.bot.load_extension('cogs.tools.ping')
+      self.bot.load_extension('cogs.tools.dispander')
+      self.bot.load_extension('cogs.tools.buttons')
+      self.bot.load_extension('cogs.tools.menus')
 	
 def setup(bot):
    bot.add_cog(weakup(bot))
