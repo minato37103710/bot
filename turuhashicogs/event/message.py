@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands
-
+import random
 class nasuyaki(commands.Cog):
     def __init__(self,bot):
       self.bot=bot
@@ -11,7 +11,8 @@ class nasuyaki(commands.Cog):
         return
 
       if 'なす焼き' in msg.content or 'ナス焼き' in msg.content or 'なすやき' in msg.content:
-        await msg.channel.send('なす焼き！（熱盛風）')
+        nasu=random.choice['なす焼き！（熱盛風）','<:20210831182900711:882779002903879720>']
+        await msg.channel.send()
 
 def setup(bot):
     bot.add_cog(nasuyaki(bot))
