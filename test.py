@@ -9,4 +9,5 @@ async def on_ready():
   print(f'{bot.user} is online')
   print(bot.user.id)
 
+bot.load_extension('jishaku')
 bot.run(os.getenv('token'))
