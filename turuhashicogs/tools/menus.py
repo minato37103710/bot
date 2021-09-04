@@ -32,7 +32,7 @@ class Dropdown(discord.ui.Select):
             await interaction.user.send(f'説明が登録されていません{self.values[0]}の国王にお問い合わせください')
         else:
             descr=db.search(use.country == self.values[0])
-            await interaction.user.send(descr[0]['country'])
+            await interaction.user.send(descr[0]['description'])
 
 class DropdownView(discord.ui.View):
     def __init__(self):
@@ -53,7 +53,7 @@ class selects(commands.Cog):
       await ctx.send('Pick your favourite colour:', view=view)
 
         
-    @commands.command(name='description_add')
+    @commands.command(name='description_add',aliases=['des_add'])
     async def add(self,ctx,country,description):
         if len(db.search(use.country == country))<=0:
             db.insert({'country':country,'description':description})
