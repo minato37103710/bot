@@ -6,7 +6,7 @@ class nasuyaki(commands.Cog):
       self.bot=bot
 
     @commands.Cog.listener()
-    async def listenr(self,msg):
+    async def on_message(self,msg):
       if 'なす焼き' in msg.content or 'ナス焼き' in msg.content or 'なすやき' in msg.content:
         await msg.channel.send('なす焼き！（熱盛風）')
 
