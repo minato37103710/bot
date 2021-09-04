@@ -12,9 +12,14 @@ class Dropdown(discord.ui.Select):
 
         # ドロップダウン内に表示されるオプションを設定します。
         options = [
-            discord.SelectOption(label='ハトマル', description='ハトマル国の説明が見れます'),
-            discord.SelectOption(label='Green', description='Your favourite colour is green', emoji='🟩'),
-            discord.SelectOption(label='Blue', description='Your favourite colour is blue', emoji='🟦')
+            discord.SelectOption(label='ハトマル帝国', description='ハトマル帝国の説明が見れます'),
+            discord.SelectOption(label='リネア王国', description='リネア王国の説明が見れます'),
+            discord.SelectOption(label='ラードラネット王国', description='ラードラネット王国の説明が見れます'),
+            discord.SelectOption(label='ネオ・ジオン', description='ネオ・ジオンの説明が見れます'),
+            discord.SelectOption(label='ロック・フィア', description='ロック・フィアの説明が見れます'),
+            discord.SelectOption(label='エル・ドラド社会主義国', description='エル・ドラド社会主義国の説明が見れます'),
+            discord.SelectOption(label='エルネシア王国', description='エルネシア王国の説明が見れます'),
+            discord.SelectOption(label='ジャンクフード王国', description='ジャンクフード王国の説明が見れます'),
         ]
 
         # プレースホルダーは、オプションが選択されなかった場合に表示されるものです。
