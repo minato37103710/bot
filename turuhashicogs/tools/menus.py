@@ -55,7 +55,7 @@ class selects(commands.Cog):
         
     @commands.command(name='description_add')
     async def add(self,ctx,country,description):
-        if len(db.search(use.name == self.values[0]))<=0:
+        if len(db.search(use.country == country))<=0:
             db.insert({'country':country,'description':description})
             await ctx.send('ok')
         else:
