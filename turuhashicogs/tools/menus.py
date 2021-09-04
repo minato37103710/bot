@@ -51,5 +51,12 @@ class selects(commands.Cog):
     # ビューを含むメッセージの送信
       await ctx.send('Pick your favourite colour:', view=view)
 
+        
+    @commands.command(name='description_add')
+    async def add(self,ctx,country,description):
+        if len(db.search(use.name == self.values[0]))<1:
+            db.insert({'country':country,'description':description})
+        else:
+            db.update({'description':description}, use.country == country)
 def setup(bot):
     bot.add_cog(selects(bot))
