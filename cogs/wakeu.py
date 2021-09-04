@@ -16,9 +16,9 @@ class weakup(commands.Cog):
             if path[0] in ("#", "."):
                 continue
             if path.endswith(".py"):
-                bot.load_extension("cogs." + path[:-3])
+                self.bot.load_extension("cogs." + path[:-3])
             elif "." not in path and path != "__pycache__" and path[0] != ".":
-                bot.load_extension("cogs." + path)
+                self.bot.load_extension("cogs." + path)
             bot.print("Loaded extension", path)
             
 def setup(bot):
