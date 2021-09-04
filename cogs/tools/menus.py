@@ -55,7 +55,7 @@ class selects(commands.Cog):
       view = DropdownView()
 
     # ビューを含むメッセージの送信
-      await ctx.send('国を選択してください', view=view)
+      await ctx.send('国を選択してください※サーバーメンバーからのダイレクトメッセージを許可してください', view=view)
 
         
     @commands.command(name='description_add',aliases=['des_add'])
