@@ -46,6 +46,6 @@ bot.author_id=757106917947605034
 
 bot.load_extension('jishaku')
 
-bot.load_extension("turuhashicogs.wakeu")
+bot.load_extension("cogs.wakeu")
 
 bot.run(os.getenv('token'))
