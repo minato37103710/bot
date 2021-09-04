@@ -32,7 +32,7 @@ class Dropdown(discord.ui.Select):
             await interaction.user.send(f'説明が登録されていません{self.values[0]}の国王にお問い合わせください')
         else:
             descr=db.search(use.country == self.values[0])
-            await interaction.user.send(descr)
+            await interaction.user.send(descr[0]['country'])
 
 class DropdownView(discord.ui.View):
     def __init__(self):
