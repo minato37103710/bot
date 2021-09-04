@@ -27,7 +27,7 @@ class Dropdown(discord.ui.Select):
         # は、ユーザーの好きな国や選択肢。自己のオブジェクトは、参照する
         # Selectオブジェクト、values属性は、ユーザーの 
         # 選択されたオプション 私たちは最初の1つだけが欲しいのです。
-        await interaction.response.send_message(f'{interaction.user.display_name} favourite colour is {self.values[0]}')
+        await interaction.user.send(f'{interaction.user.display_name} favourite colour is {self.values[0]}')
 
 class DropdownView(discord.ui.View):
     def __init__(self):
