@@ -29,4 +29,4 @@ class weakup(commands.Cog):
       self.bot.load_extension('turuhashicogs.tools.menus')
 	
 def setup(bot):
-	bot.add_cog(weakup(bot))
+   bot.add_cog(weakup(bot))
