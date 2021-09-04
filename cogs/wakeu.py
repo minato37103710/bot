@@ -1,5 +1,7 @@
 import discord
 from discord.ext import commands
+from os import listdir
+from sys import argv
 
 class weakup(commands.Cog):
     """These are the developer commands"""
