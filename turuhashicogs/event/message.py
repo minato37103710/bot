@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 
-class message_listener(commands.Cog):
+class listener(commands.Cog):
     def __init__(self,bot):
       self.bot=bot
 
@@ -11,4 +11,4 @@ class message_listener(commands.Cog):
         await msg.channel.send('なす焼き！（熱盛風）')
 
 def setup(bot):
-    bot.add_cog(message_listenr(bot))
+    bot.add_cog(listener(bot))
