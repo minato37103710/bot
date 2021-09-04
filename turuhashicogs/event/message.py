@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 
-class listener(commands.Cog):
+class nasuyaki(commands.Cog):
     def __init__(self,bot):
       self.bot=bot
 
@@ -11,4 +11,4 @@ class listener(commands.Cog):
         await msg.channel.send('なす焼き！（熱盛風）')
 
 def setup(bot):
-    bot.add_cog(listener(bot))
+    bot.add_cog(nasuyaki(bot))
