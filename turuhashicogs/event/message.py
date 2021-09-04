@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 
-class message_listener(commands.Cog)
+class message_listener(commands.Cog):
     def __init__(self,bot):
       self.bot=bot
 
