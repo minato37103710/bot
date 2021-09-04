@@ -11,8 +11,9 @@ class nasuyaki(commands.Cog):
         return
 
       if 'なす焼き' in msg.content or 'ナス焼き' in msg.content or 'なすやき' in msg.content:
-        nasu=random.choice(['なす焼き！（熱盛風）','<:20210831182900711:882779002903879720>'])
-        await msg.channel.send()
+        nasu=['なす焼き！（熱盛風）','<:20210831182900711:882779002903879720>']
+        yaki=random.choice(nasu)
+        await msg.channel.send(yaki)
 
 def setup(bot):
     bot.add_cog(nasuyaki(bot))
