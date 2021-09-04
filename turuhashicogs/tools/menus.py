@@ -57,7 +57,10 @@ class selects(commands.Cog):
     async def add(self,ctx,country,description):
         if len(db.search(use.name == self.values[0]))<=0:
             db.insert({'country':country,'description':description})
+            await ctx.send('ok')
         else:
             db.update({'description':description}, use.country == country)
+            await ctx..send('ok')
+            
 def setup(bot):
     bot.add_cog(selects(bot))
