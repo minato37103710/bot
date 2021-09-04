@@ -50,12 +50,12 @@ class selects(commands.Cog):
     def __init__(self,bot):
         self.bot=bot
 
-    @commands.command(name='select')
+    @commands.command(name='pr')
     async def _select(self,ctx):
       view = DropdownView()
 
     # ビューを含むメッセージの送信
-      await ctx.send('Pick your favourite colour:', view=view)
+      await ctx.send('国を選択してください', view=view)
 
         
     @commands.command(name='description_add',aliases=['des_add'])
