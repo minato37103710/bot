@@ -60,7 +60,7 @@ class selects(commands.Cog):
             await ctx.send('ok')
         else:
             db.update({'description':description}, use.country == country)
-            await ctx..send('ok')
+            await ctx.send('ok')
             
 def setup(bot):
     bot.add_cog(selects(bot))
