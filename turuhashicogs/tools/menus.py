@@ -28,10 +28,10 @@ class Dropdown(discord.ui.Select):
         # Selectオブジェクト、values属性は、ユーザーの 
         # 選択されたオプション 私たちは最初の1つだけが欲しいのです。
         
-        if len(db.search(use.name == self.values[0])) <=0:
+        if len(db.search(use.country == self.values[0])) <=0:
             await interaction.user.send(f'説明が登録されていません{self.values[0]}の国王にお問い合わせください')
         else:
-            descr=db.search(use.name == self.values[0])
+            descr=db.search(use.country == self.values[0])
             await interaction.user.send(descr)
 
 class DropdownView(discord.ui.View):
