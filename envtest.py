@@ -1,2 +1,2 @@
 import os
-print(getenv('token'))
+print(os.getenv('token'))
