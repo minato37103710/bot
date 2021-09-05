@@ -61,8 +61,8 @@ class selects(commands.Cog):
     @commands.command(name='description_add',aliases=['des_add'])
     async def add(self,ctx,country,*,arg):
         role=ctx.guild.get_role(866287022082490398)
-        #if not role in ctx.author.roles:
-            #await ctx.send('Not enough of your permission')
+        if not role in ctx.author.roles:
+            await ctx.send('Not enough of your permission')
         if len(db.search(use.country == country))<=0:
             db.insert({'country':country,'description':arg})
             await ctx.send('ok')
