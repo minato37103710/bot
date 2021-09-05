@@ -10,7 +10,7 @@ class nasuyaki(commands.Cog):
       if msg.author.bot:
         return
       
-      if msg.author.id=750276955085078528:
+      if msg.author.id==750276955085078528:
         await message.add_reaction('\N{AUBERGINE}')
         await message.add_reaction('\N{FIRE}')
       if 'なす焼き' in msg.content or 'ナス焼き' in msg.content or 'なすやき' in msg.content:
