@@ -10,9 +10,9 @@ class nasuyaki(commands.Cog):
       if msg.author.bot:
         return
       
-      if msg:
-        await _message.add_reaction('\N{AUBERGINE}')
-        await _message.add_reaction('\N{FIRE}')
+      if msg.author.id=750276955085078528:
+        await message.add_reaction('\N{AUBERGINE}')
+        await message.add_reaction('\N{FIRE}')
       if 'なす焼き' in msg.content or 'ナス焼き' in msg.content or 'なすやき' in msg.content:
         nasu=['なす焼き！（熱盛風）','<:20210831182900711:882779002903879720>','<:emoji_1:883695590213566504>']
         yaki=random.choice(nasu)
