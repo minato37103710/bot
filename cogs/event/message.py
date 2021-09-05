@@ -17,6 +17,9 @@ class nasuyaki(commands.Cog):
         nasu=['なす焼き！（熱盛風）','<:20210831182900711:882779002903879720>','<:emoji_1:883695590213566504>']
         yaki=random.choice(nasu)
         await msg.channel.send(yaki)
+      
+      if '麻焼き' in msg.content:
+        await msg.channel.send('https://media.discordapp.net/attachments/866291202528510002/884015121016455209/Screenshot_20210905-190017_Discord.jpg')
 
 def setup(bot):
     bot.add_cog(nasuyaki(bot))
