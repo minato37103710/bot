@@ -109,10 +109,11 @@ async def on_message(message):
     if message.attachments:
         pass
     
-    elif client.user != message.author:
+    if message.author.bot:
+        return
+    if msg:    
         text = message.content
-        res = make_reply(text)
-        await message.channel.send(res)
+        await message.channel.send(text)
 
 
 client.run(os.getenv('token'))
