@@ -1,4 +1,3 @@
-import os
 import discord
 import os, re, json, random
 from janome.tokenizer import Tokenizer
