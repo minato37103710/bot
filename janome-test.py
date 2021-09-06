@@ -15,7 +15,7 @@ if os.path.exists(dict_file):
 
 def register_dic(words):
     global dic
-    if len(words) == 0: return
+    if list(words) == 0: return
     tmp = ["@"]
     for i in words:
         word = i.surface
