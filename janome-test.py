@@ -1,7 +1,7 @@
 import os
 import discord
 import os, re, json, random
-from Janome.tokenizer import Tokenizer
+from janome.tokenizer import Tokenizer
 
 
 
