@@ -10,7 +10,8 @@ dic = {}
 tokenizer = Tokenizer()
 
 if os.path.exists(dict_file):
-    dic = with json.load(open(dict_file, "r"))
+    with json.load(open(dict_file, "r")) as dic:
+
 
 def register_dic(words):
     global dic
@@ -27,7 +28,7 @@ def register_dic(words):
             tmp = ["@"]
             continue
         #辞書更新毎にファイル保存
-        f = with open(dict_file, "w", encoding="utf-8")
+        with open(dict_file, "w", encoding="utf-8") as f:
         json.dump(dic, f)
 
 def set_word3(dic, s3):
