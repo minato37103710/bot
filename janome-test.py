@@ -111,7 +111,7 @@ async def on_message(message):
     
     if message.author.bot:
         return
-    if msg:    
+    if message:    
         text = message.content
         await message.channel.send(text)
 
