@@ -1,3 +1,4 @@
+import os
 import discord
 import os, re, json, random
 from janome.tokenizer import Tokenizer
@@ -114,4 +115,4 @@ async def on_message(message):
         await client.send_message(message.channel, res)
 
 
-client.run('token')
+client.run(os.getenv('token'))
