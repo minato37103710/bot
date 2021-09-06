@@ -39,7 +39,6 @@ def set_word3(dic, s3):
 
 
 def make_sentence(head):
-    if not head in dic: return ""
     ret = []
     if head != "@": ret.append(head)
     top = dic[head]
