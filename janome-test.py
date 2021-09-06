@@ -106,7 +106,7 @@ async def on_ready():
 @client.event
 
 async def on_message(message):
-    if message.channel.id==884383014199656448:
+    if not message.channel.id==884383014199656448:
         return
 
     if message.attachments:
