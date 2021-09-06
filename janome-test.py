@@ -106,11 +106,15 @@ async def on_ready():
 @client.event
 
 async def on_message(message):
+    if message.channel.id==884383014199656448:
+        return
+
     if message.attachments:
         pass
     
     if message.author.bot:
         return
+    
     if message:    
         text = message.content
         await message.channel.send(text)
