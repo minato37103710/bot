@@ -42,7 +42,7 @@ def set_word3(dic, s3):
 
 def make_sentence(head):
     ret = []
-    if head != "@": ret.append(head)
+    if head not in dic: return ""
     top = dic[head]
     w1 = word_choice(top)
     w2 = word_choice(top[w1])
