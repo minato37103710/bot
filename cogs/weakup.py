@@ -15,7 +15,7 @@ class weakup(commands.Cog):
       await self.bot.change_presence(activity=discord.Game('起動中'))      
       try:
           self.bot.load_extension("cogs.tools.member")
-      except commands.errors.CommandError:
+      except commands.errors.CommandError or commands.errors.TypeError or commands.error.ClientException:
           ch=self.bot.get_channel(871241336492285974)
           await ch.send(f'cog読み込みでエラーが発生しました')
       self.bot.load_extension('cogs.tools.user')
