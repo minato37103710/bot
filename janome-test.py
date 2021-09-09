@@ -118,7 +118,10 @@ async def on_message(message):
     if message:    
         text = message.content
         res = make_reply(text)
-        await message.channel.send(res)
+        if res==None:
+            pass
+        else:
+            await message.channel.send(res)
 
 
 client.run(os.getenv('token'))
