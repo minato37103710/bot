@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 
-class member(commands.Cog):
+class member():
     """These are the developer commands"""
 
     def __init__(self, bot):
