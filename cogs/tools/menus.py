@@ -63,6 +63,7 @@ class selects(commands.Cog):
         role=ctx.guild.get_role(866287022082490398)
         if not role in ctx.author.roles:
             await ctx.send('Not enough of your permission')
+            return
         if len(db.search(use.country == country))<=0:
             db.insert({'country':country,'description':arg})
             await ctx.send('ok')
