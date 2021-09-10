@@ -29,8 +29,8 @@ def register_dic(words):
             tmp = ["@"]
             continue
         #辞書更新毎にファイル保存
-        with open(dict_file, "w", encoding="utf-8") as f:
-          json.dump(dic, f)
+    with open(dict_file, "w", encoding="utf-8") as f:
+      json.dump(dic, f)
 
 def set_word3(dic, s3):
     w1, w2, w3 = s3
