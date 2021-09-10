@@ -39,9 +39,11 @@ bot.add_cog(Greet(bot=bot))
 @bot.event
 async def on_command_error(ctx, error):
   if isinstance(error,commands.errors.CommandNotFound):
-     err=discord.Embed(title='404 not found',description=f'そのようなコマンドは存在しません\n{error}')
-     await ctx.send(embed=err)
-    
+      err=discord.Embed(title='404 not found',description=f'そのようなコマンドは存在しません\n{error}')
+      await ctx.send(embed=err)
+  else:
+      err=discord.Embed(title='未知のエラーが発生しました')
+      await ctx.send(embed=err)
 bot.author_id=757106917947605034
 
 bot.load_extension('jishaku')
