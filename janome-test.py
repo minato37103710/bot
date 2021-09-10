@@ -6,12 +6,12 @@ from janome.tokenizer import Tokenizer
 
 
 dict_file = "chatbot-data.json"
-dic = {}
+di = {}
 tokenizer = Tokenizer()
 
 if os.path.exists(dict_file):
-    with open(dict_file, "r") as di:
-      dat = json.load(di)
+    with open(dict_file, "r") as dic:
+      dat = json.load(dic)
 
 
 def register_dic(words):
