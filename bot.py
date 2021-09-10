@@ -42,7 +42,7 @@ async def on_command_error(ctx, error):
       err=discord.Embed(title='404 not found',description=f'そのようなコマンドは存在しません\n{error}')
       await ctx.send(embed=err)
   else:
-      err=discord.Embed(title='未知のエラーが発生しました')
+      err=discord.Embed(title='未知のエラーが発生しました',description=error)
       await ctx.send(embed=err)
 bot.author_id=757106917947605034
 
