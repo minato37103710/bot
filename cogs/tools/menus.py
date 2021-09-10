@@ -40,12 +40,11 @@ class Dropdown(discord.ui.Select):
             await interaction.user.send(descr[0]['description'])
             print(self.values[0])
 class DropdownView(discord.ui.View):
-    def __init__(self,bot):
+    def __init__(self):
         super().__init__()
-        self.bot=bot
 
         # ビューオブジェクトにドロップダウンを追加します。
-        self.bot.add_view(Dropdown())
+        self.add_item(Dropdown())
 
 class selects(commands.Cog):
     def __init__(self,bot):
