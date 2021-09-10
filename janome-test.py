@@ -10,8 +10,8 @@ dic = {}
 tokenizer = Tokenizer()
 
 if os.path.exists(dict_file):
-    with open(dict_file, "r") as dic:
-      dat = json.load(dic)
+    with open(dict_file, "r") as di:
+      dat = json.load(di)
 
 
 def register_dic(words):
