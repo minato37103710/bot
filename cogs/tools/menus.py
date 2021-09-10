@@ -38,7 +38,7 @@ class Dropdown(discord.ui.Select):
         else:
             descr=db.search(use.country == self.values[0])
             await interaction.user.send(descr[0]['description'])
-
+            print(self.values[0])
 class DropdownView(discord.ui.View):
     def __init__(self):
         super().__init__()
@@ -56,7 +56,6 @@ class selects(commands.Cog):
 
     # ビューを含むメッセージの送信
       await ctx.send('国を選択してください※サーバーメンバーからのダイレクトメッセージを許可してください', view=view)
-
         
     @commands.command(name='description_add',aliases=['des_add'])
     async def add(self,ctx,country,*,arg):
