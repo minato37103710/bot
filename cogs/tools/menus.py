@@ -25,7 +25,7 @@ class Dropdown(discord.ui.Select):
         # プレースホルダーは、オプションが選択されなかった場合に表示されるものです。
         # 最小値と最大値は、3つの選択肢の中から1つしか選べないことを示しています。
         # optionsパラメータは、ドロップダウンのオプションを定義します。上記で定義した
-        super().__init__(placeholder='国を選択してください', min_values=1, max_values=1, options=options)
+        super().__init__(placeholder='国を選択してください', min_values=1, max_values=1, options=options,timeout=None)
 
     async def callback(self, interaction: discord.Interaction):
         # インタラクションオブジェクトを使用して、以下の内容のレスポンスメッセージを送信します。
@@ -44,7 +44,7 @@ class DropdownView(discord.ui.View):
         super().__init__()
 
         # ビューオブジェクトにドロップダウンを追加します。
-        self.add_item(Dropdown())
+        self.add_view(Dropdown())
 
 class selects(commands.Cog):
     def __init__(self,bot):
