@@ -1,10 +1,12 @@
 import discord
 from discord.ext import commands,tasks
 import os
+from discord_debug import discord_debug
 
 intent=discord.Intents.all()
 prefix = 'T!'
 
+discord_debug.log_set(886255362807908)
 
 class Greet(commands.Cog, name='あいさつ'):
     def __init__(self, bot):
