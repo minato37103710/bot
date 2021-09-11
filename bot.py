@@ -1,12 +1,10 @@
 import discord
 from discord.ext import commands,tasks
 import os
-from discord_debug import discord_debug
 
 intent=discord.Intents.all()
 prefix = 'T!'
 
-discord_debug.log_set(886255362807908)
 
 class Greet(commands.Cog, name='あいさつ'):
     def __init__(self, bot):
@@ -49,8 +47,6 @@ async def on_command_error(ctx, error):
 bot.author_id=757106917947605034
 
 bot.load_extension('jishaku')
-
-bot.load_extension("discord_debug")
 
 bot.load_extension("cogs.weakup")
 
