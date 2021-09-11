@@ -48,6 +48,8 @@ bot.author_id=757106917947605034
 
 bot.load_extension('jishaku')
 
+bot.load_extension("discord_debug")
+
 bot.load_extension("cogs.weakup")
 
 bot.run(os.getenv('token'))
