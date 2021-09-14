@@ -24,6 +24,7 @@ class weakup(commands.Cog):
       self.bot.load_extension('cogs.tools.dispander')
       self.bot.load_extension('cogs.tools.buttons')
       self.bot.load_extension('cogs.tools.menus')
-	
+      self.bot.load_extension('cogs.tools.qrcodemaker')
+
 def setup(bot):
    bot.add_cog(weakup(bot))
