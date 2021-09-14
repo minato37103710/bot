@@ -118,7 +118,7 @@ async def on_message(message):
     if message:    
         text = message.content
         res = make_reply(text)
-        if res == Null:
+        if res == ull:
             return
         else:
             await message.channel.send(res)
