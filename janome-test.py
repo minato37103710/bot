@@ -32,7 +32,7 @@ def register_dic(words):
     with open(dict_file, "w", encoding="utf-8") as f:
       json.dump(di, f)
 
-def set_word3(dic, s3):
+def set_word3(di, s3):
     w1, w2, w3 = s3
     if not w1 in dic: dic[w1] = {}
     if not w2 in dic[w1]: dic[w1][w2] = {}
