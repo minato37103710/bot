@@ -24,7 +24,7 @@ def register_dic(words):
         tmp.append(word)
         if len(tmp) < 3: continue
         if len(tmp) > 3: tmp = tmp[1:]
-            set_word3(dic, tmp)
+        set_word3(dic, tmp)
         if word == "。" or word == "?":
             tmp = ["@"]
             continue
