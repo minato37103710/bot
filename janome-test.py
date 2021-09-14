@@ -19,8 +19,9 @@ def register_dic(words):
     tmp = ["@"]
     for i in words:
         word = i.surface
-        if word == "" or word == "\r\n" or word == "\n": continue
-            tmp.append(word)
+        if word == "" or word == "\r\n" or word == "\n": 
+            continue
+        tmp.append(word)
         if len(tmp) < 3: continue
         if len(tmp) > 3: tmp = tmp[1:]
             set_word3(dic, tmp)
