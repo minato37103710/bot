@@ -37,7 +37,7 @@ def set_word3(di, s3):
     if not w1 in dic: dic[w1] = {}
     if not w2 in dic[w1]: dic[w1][w2] = {}
     if not w3 in dic[w1][w2]: dic[w1][w2][w3] = 0
-    dic[w1][w2][w3] += 1
+    di[w1][w2][w3] += 1
 
 
 def make_sentence(head):
