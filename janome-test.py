@@ -41,7 +41,7 @@ def set_word3(di, s3):
 
 def make_sentence(head):
     ret = []
-    if head not in dic: return ""
+    if head not in di: return ""
     top = di[head]
     w1 = word_choice(top)
     w2 = word_choice(top[w1])
