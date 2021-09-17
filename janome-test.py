@@ -7,6 +7,7 @@ from janome.tokenizer import Tokenizer
 
 
 dict_file = "chatbot-data.json"
+tokenizer = Tokenizer()
 
 if os.path.exists(dict_file):
     di = json.load(open(dict_file, "r"))
