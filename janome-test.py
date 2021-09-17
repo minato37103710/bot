@@ -16,7 +16,9 @@ def register_dic(words):
     if list(words) == 0: return
     tmp = ["@"]
     for i in words:
+        print(i)
         word = i.surface
+        print(word)
         if word == "" or word == "\r\n" or word == "\n": 
             print('ok')
             continue
