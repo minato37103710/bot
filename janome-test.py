@@ -85,17 +85,23 @@ def word_choice(sel):
 # botに返答させる
 def make_reply(text):
     # まず単語を学習する
+    print(text)
     if text[-1] != "。": text += "。"
     words = tokenizer.tokenize(text)
+    print(words)
     register_dic(words)
     # 辞書に単語があれば、そこから話す
     for w in words:
+        print(w)
         face = w.surface
+        print(face)
         ps = w.part_of_speech.split(',')[0]
+        print(ps)
         if ps == "感動詞":
             return face + "。"
         if ps == "名詞" or ps == "形容詞":
-            if face in dic: return make_sentence(face)
+            if face in dic: 
+                return make_sentence(face)
     return make_sentence("@")
 
 #ここからメッセージ取得&返信
