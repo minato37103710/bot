@@ -88,13 +88,13 @@ def make_reply(text):
     print(text)
     if text[-1] != "。": text += "。"
     words = tokenizer.tokenize(text)
-    print(words)
+    print('1',words)
     register_dic(words)
     # 辞書に単語があれば、そこから話す
     for w in words:
-        print(w)
+        print(w,'2')
         face = w.surface
-        print(face)
+        print(face,'3')
         ps = w.part_of_speech.split(',')[0]
         print(ps)
         if ps == "感動詞":
