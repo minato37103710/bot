@@ -131,4 +131,4 @@ async def on_message(message):
             await message.channel.send(res)
 
 
-client.run(os.getenv('token'))
+bot.run(os.getenv('token'))
