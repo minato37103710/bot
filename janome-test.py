@@ -11,29 +11,22 @@ tokenizer = Tokenizer()
 
 if os.path.exists(dict_file):
     di = json.load(open(dict_file, "r"))
-    print(di)
+    
     
 def register_dic(words):
     global di
     if list(words) == 0:
-        print(words)
         return
     tmp = ["@"]
-    print(tmp)
     for i in words:
-        print(i)
         word = i.surface
-        print(word)
         if word == "" or word == "\r\n" or word == "\n": 
-            print('ok')
             continue
         tmp.append(word)
         if len(tmp) < 3: 
-            print('ok')
             continue
         if len(tmp) > 3: 
             tmp = tmp[1:]
-            print(tmp)
         set_word3(di, tmp)
         if word == "。" or word == "?":
             tmp = ["@"]
@@ -41,8 +34,6 @@ def register_dic(words):
         #辞書更新毎にファイル保存
     with open(dict_file, "w", encoding="utf-8") as f:
       json.dump(di, f)
-    print(f)
-    print(di)
  
 
 def set_word3(di, s3):
@@ -57,11 +48,8 @@ def make_sentence(head):
     ret = []
     if head not in di: return ""
     top = di[head]
-    print(top)
     w1 = word_choice(top)
-    print(w1)
     w2 = word_choice(top[w1])
-    print(w2)
     ret.append(w1)
     ret.append(w2)
     while True:
@@ -77,7 +65,6 @@ def make_sentence(head):
 
 def word_choice(sel):
     keys = sel.keys()
-    print(keys)
     return random.choice(list(keys))
 
 
