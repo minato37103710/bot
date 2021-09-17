@@ -18,6 +18,7 @@ def register_dic(words):
     for i in words:
         word = i.surface
         if word == "" or word == "\r\n" or word == "\n": 
+            print('ok')
             continue
         tmp.append(word)
         if len(tmp) < 3: 
