@@ -11,11 +11,16 @@ tokenizer = Tokenizer()
 
 if os.path.exists(dict_file):
     di = json.load(open(dict_file, "r"))
-
+    printt(di)
+    
 def register_dic(words):
     global di
-    if list(words) == 0: return
+    print(di)
+    if list(words) == 0: 
+        print(words)
+        return
     tmp = ["@"]
+    print(tmp)
     for i in words:
         print(i)
         word = i.surface
