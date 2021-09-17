@@ -1,4 +1,5 @@
 import discord
+from discord.ext import commands
 import os, re, json, random
 from janome.tokenizer import Tokenizer
 
@@ -95,21 +96,21 @@ def make_reply(text):
 #
 #
 
-client = discord.Client()
+bot = commannds.Bot(command_prefix='jt!',intents=discord.Intents.all())
 
 
 
-@client.event
+@bot.event
 async def on_ready():
     print('Logged in as')
-    print(client.user.name)
-    print(client.user.id)
+    print(bot.user.name)
+    print(bot.user.id)
     print('------')
 
 
 
 
-@client.event
+@bot.event
 
 async def on_message(message):
     if not message.channel.id==884383014199656448:
