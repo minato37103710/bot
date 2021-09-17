@@ -20,7 +20,9 @@ def register_dic(words):
         if word == "" or word == "\r\n" or word == "\n": 
             continue
         tmp.append(word)
-        if len(tmp) < 3: continue
+        if len(tmp) < 3: 
+            print('ok')
+            continue
         if len(tmp) > 3: 
             tmp = tmp[1:]
             print(tmp)
