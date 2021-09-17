@@ -40,7 +40,9 @@ def register_dic(words):
             continue
         #辞書更新毎にファイル保存
     with open(dict_file, "w", encoding="utf-8") as f:
-      json.dump(di, f)   
+      json.dump(di, f)
+    print(f)
+    print(di)
  
 
 def set_word3(di, s3):
@@ -55,8 +57,11 @@ def make_sentence(head):
     ret = []
     if head not in di: return ""
     top = di[head]
+    print(top)
     w1 = word_choice(top)
+    print(w1)
     w2 = word_choice(top[w1])
+    print(w2)
     ret.append(w1)
     ret.append(w2)
     while True:
@@ -72,6 +77,7 @@ def make_sentence(head):
 
 def word_choice(sel):
     keys = sel.keys()
+    print(keys)
     return random.choice(list(keys))
 
 
