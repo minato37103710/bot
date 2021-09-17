@@ -15,8 +15,8 @@ if os.path.exists(dict_file):
     
 def register_dic(words):
     global di
-    print(di)
-    if list(words) == 0: 
+    if list(words) == 0:
+        print(words)
         return
     tmp = ["@"]
     print(tmp)
