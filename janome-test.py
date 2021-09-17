@@ -96,7 +96,7 @@ def make_reply(text):
 #
 #
 
-bot = commannds.Bot(command_prefix='jt!',intents=discord.Intents.all())
+bot = commands.Bot(command_prefix='jt!',intents=discord.Intents.all())
 
 
 
