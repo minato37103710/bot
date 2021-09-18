@@ -17,7 +17,7 @@ for line in lines:  #分割された文章毎に繰り返す
     for w in malist:  # リストの各要素を取り出してカウント
         word = w.surface  #                                          手順2         手順4
         part = w.part_of_speech  #品詞
-        if part.find('名詞') &lt; 0: continue
+        if part.find('名詞') and lt; 0: continue
 #-----------------------------------------------------------------------------
         if not word in dic:
             dic[word] = 0  #数を格納するカウンター用の変数を生成  #        手順3
