@@ -1,11 +1,6 @@
 import discord
 from discord.ext import commands
 import typing
-from tinydb import TinyDB, Query
-
-db=TinyDB('color.json')
-
-use = Query()
 
 class Dropdown(discord.ui.Select):
     def __init__(self):
@@ -33,12 +28,6 @@ class Dropdown(discord.ui.Select):
         # Selectオブジェクト、values属性は、ユーザーの 
         # 選択されたオプション 私たちは最初の1つだけが欲しいのです。
         
-        if len(db.search(use.country == self.values[0])) <=0:
-            await interaction.user.send(f'説明が登録されていません{self.values[0]}の国王にお問い合わせください')
-        else:
-            descr=db.search(use.country == self.values[0])
-            await interaction.user.send(descr[0]['description'])
-            print(self.values[0])
 class DropdownView(discord.ui.View):
     def __init__(self):
         super().__init__()
@@ -57,18 +46,7 @@ class selects(commands.Cog):
     # ビューを含むメッセージの送信
       await ctx.send('国を選択してください※サーバーメンバーからのダイレクトメッセージを許可してください', view=view)
         
-    @commands.command(name='description_add',aliases=['des_add'])
-    async def add(self,ctx,country,*,arg):
-        role=ctx.guild.get_role(866287022082490398)
-        if not role in ctx.author.roles:
-            await ctx.send('Not enough of your permission')
-            return
-        if len(db.search(use.country == country))<=0:
-            db.insert({'country':country,'description':arg})
-            await ctx.send('ok')
-        else:
-            db.update({'description':description}, use.country == country)
-            await ctx.send('ok')
+
             
 def setup(bot):
     bot.add_cog(selects(bot))
