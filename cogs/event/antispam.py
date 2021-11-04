@@ -1,15 +1,8 @@
 import discord
 from discord.ext import commands
 import glob, random
-from tinydb import TinyDB, Query
 import asyncio
-from tinydb import TinyDB, Query
-from tinydb.operations import increment
-import json
 
-db=TinyDB('spam.json')
-
-User = Query()
 
 class antispam(commands.Cog):
     def __init__(self, bot):
