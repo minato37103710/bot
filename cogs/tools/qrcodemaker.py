@@ -7,7 +7,7 @@ class qrcodemaker(commands.Cog):
          self.bot=bot
 
     @commands.command(name='make_qr',aliases=['mkqr'])
-    async def qrcodemake(self,ctx,*,arg):
+    async def qrcodemake(self,ctx,*,url):
         img = qrcode.make(arg)
         print(arg)
         print(type(img))
