@@ -17,6 +17,8 @@ class ping(commands.Cog):
 
       b=random.randint(1,100)
 
+      aaa = await ctx.send(f'{a}+{b}=')
+      
       d=a+b
     
       def check(m):
