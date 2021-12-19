@@ -23,8 +23,10 @@ class ping(commands.Cog):
     
       def check(m):
           return m.content==d and m.channel == channel  
-      await self.bot.wait_for('ctx',check=check)
+    try:
+      raise await self.bot.wait_for('ctx',check=check)
     
+        
     # Δt = t1 - t0 の t0 を定義する。
       t0 = monotonic()
         # Discord を通す関数を挟む。(応答速度)
@@ -35,6 +37,8 @@ class ping(commands.Cog):
 
         # 送っていたメッセージを編集。ここで、応答速度を表示する。int にしているのは、小数点を消すため。( int は整数値)
       await ping_message.edit(embed=discord.Embed(title=f"Pong! 応答速度**{int(latency)}** ms です。",color=discord.Color.random()))
+    except Except as e:
+        print(e)
 
 def setup(bot):
   bot.add_cog(ping(bot)) 
