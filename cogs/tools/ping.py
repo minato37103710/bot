@@ -24,7 +24,7 @@ class ping(commands.Cog):
       def check(m):
           return m.content==d and m.channel == channel  
     try:
-      raise await self.bot.wait_for('ctx',check=check)
+      raise #await self.bot.wait_for('ctx',check=check)
     
         
     # Δt = t1 - t0 の t0 を定義する。
