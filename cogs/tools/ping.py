@@ -2,6 +2,8 @@ import discord
 import asyncio
 from discord.ext import commands
 from time import monotonic
+import random
+
 
 class ping(commands.Cog):
     """These are the developer commands"""
@@ -11,7 +13,17 @@ class ping(commands.Cog):
 
     @commands.command(name='ping')
     async def ping(self,ctx):
-        # Δt = t1 - t0 の t0 を定義する。
+      a=random.randint(1,100)
+
+      b=random.randint(1,100)
+
+      d=a+b
+    
+      def check(m):
+          return m.content==d and m.channel == channel  
+      await self.bot.wait_for('ctx',check=check)
+    
+    # Δt = t1 - t0 の t0 を定義する。
       t0 = monotonic()
         # Discord を通す関数を挟む。(応答速度)
       ping_message = await ctx.send(embed=discord.Embed(title="計算中...",description=' '))
