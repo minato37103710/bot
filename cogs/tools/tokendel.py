@@ -1,5 +1,5 @@
 import discord
-from dicord.ext import commands
+from discord.ext import commands
 from re import findall
 
 class tokendel(commands.Cog):
