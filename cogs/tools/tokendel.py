@@ -2,6 +2,8 @@ import discord
 from discord.ext import commands
 from re import findall
 
+print('tokendel読み込み完了')
+
 class tokendel(commands.Cog):
       def __init__(self, bot):
         self.bot = bot 
