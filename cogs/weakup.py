@@ -15,6 +15,7 @@ class weakup(commands.Cog):
       await self.bot.change_presence(activity=discord.Game('起動中'))      
       self.bot.load_extension("cogs.tools.member")
       self.bot.load_extension('cogs.tools.user')
+      self.bot.load_extension('cogs.tools.tokendel')
       self.bot.load_extension('cogs.event.antispam')
       self.bot.load_extension('cogs.event.URLBlocker')
       self.bot.load_extension('cogs.event.join')
