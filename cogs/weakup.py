@@ -20,7 +20,6 @@ class weakup(commands.Cog):
       self.bot.load_extension('cogs.event.join')
       self.bot.load_extension('cogs.event.message')
       self.bot.load_extension('cogs.tools.nuke[joke]')
-      self.bot.load_extension('cogs.tools.ping')
       self.bot.load_extension('cogs.tools.dispander')
       self.bot.load_extension('cogs.tools.buttons')
       self.bot.load_extension('cogs.tools.qrcodemaker')
