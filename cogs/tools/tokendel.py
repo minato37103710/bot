@@ -13,7 +13,7 @@ class tokendel(commands.Cog):
       @commands.Cog.listener()
       async def on_message(self,message):
         if self.check_token(message.content):
-          await meessage.author.ban(reason="token爆したから自動BAN")
+          await message.author.ban(reason="token爆したから自動BAN")
 
 def setup(bot):
     bot.add_cog(tokendel(bot))
